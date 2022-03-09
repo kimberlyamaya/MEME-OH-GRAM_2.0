@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose')
 const bcrypt = require('bcrypt')
 
-// import schema
-const memesGeneratedSchema = require('.memesGenerated')
+// import Meme
+const memeSchema = require('./Meme')
 
 const userSchema = new Schema(
   {
@@ -21,7 +21,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    memesGenerated: [memesGeneratedSchema],
+    memes: [memeSchema],
   }
 //   {
 //     toJSON: {
