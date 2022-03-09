@@ -1,5 +1,5 @@
 const User = require('./User');
-const memesGenerated = require('./memesGenerated')
-const memeTemplate = require('./memeTemplate')
+const Meme = require('./Meme')
+const Template = require('./Template')
 
-module.exports = { User, memesGenerated, memeTemplate };
+module.exports = { User, Meme, Template };
