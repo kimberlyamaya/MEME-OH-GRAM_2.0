@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 const templateSchema = new Schema({
     template: {
@@ -9,4 +9,4 @@ const templateSchema = new Schema({
 // has to be a model as these standalone
 const Template = model('Template', templateSchema)
 
-module.exports = Template
+module.exports = Template;

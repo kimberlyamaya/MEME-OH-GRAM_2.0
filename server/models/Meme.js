@@ -13,4 +13,4 @@ const memeSchema = new Schema({
 // has to be a model so they can standalone from the user, to be displayed as generated memes
 const Meme = model('Meme', memeSchema)
 
-module.exports = Meme
+module.exports = Meme;

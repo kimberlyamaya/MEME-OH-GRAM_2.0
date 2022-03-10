@@ -7,4 +7,4 @@ const likeSchema = new Schema({
     },
 })
 
-module.exports = likeSchema
+module.exports = likeSchema;
