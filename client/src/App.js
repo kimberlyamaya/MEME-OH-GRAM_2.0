@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar"
 import Home from './components/Home/Home';
 import About from "./components/About/About";
 import Memes from "./components/Memes/Memes";
-import Login from "./components/Login/Login";
+import Login from "./components/LoginForm/LoginForm";
 function App() {
   return (
     <Router>

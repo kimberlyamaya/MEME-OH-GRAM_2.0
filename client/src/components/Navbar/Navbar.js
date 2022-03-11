@@ -63,9 +63,10 @@ function Navbar() {
        </div>
      </div>
    </div>
-   <div className='col-12 text-center'><h1>Me-OH-gram</h1></div>
+   <div className='col-12 text-center'><h1>Meme-OH-gram</h1></div>
  </header>
         </>
+
     )
 }
 
