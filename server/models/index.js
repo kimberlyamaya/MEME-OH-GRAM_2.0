@@ -1,4 +1,4 @@
 const User = require('./User');
-const Template = require('./Template');
+const Meme = require('./Meme');
 
-module.exports = { User, Template };
+module.exports = { User, Meme };

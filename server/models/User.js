@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose')
 const bcrypt = require('bcrypt')
 
 // import Meme
-const memeSchema = require('./Meme')
+// const memeSchema = require('./Meme')
 
 const userSchema = new Schema(
   {
@@ -11,23 +11,17 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
-    },
     password: {
       type: String,
       required: true,
     },
-    memes: [memeSchema],
+    memes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Meme'
+      }
+    ]
   }
-//   {
-//     toJSON: {
-//       virtuals: true
-//     }
-//   }
  )
 
  // hash password
