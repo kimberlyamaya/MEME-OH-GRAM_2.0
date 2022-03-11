@@ -55,8 +55,18 @@ function Navbar() {
         </NavLink>
         </li>
         <li style={styles.space}>
-        <NavLink to="/login-signup" onClick={() => handleClick()}>
-             Login/Signup
+        <NavLink to="/loginform" onClick={() => handleClick()}>
+             Login
+        </NavLink>
+        </li>
+        <li style={styles.space}>
+        <NavLink to="/signupform" onClick={() => handleClick()}>
+             Signup
+        </NavLink>
+        </li>
+        <li style={styles.space}>
+        <NavLink to="/logout" onClick={() => handleClick()}>
+             Logout
         </NavLink>
         </li>
     </ul>
