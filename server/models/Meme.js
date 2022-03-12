@@ -1,13 +1,20 @@
 const { Schema, model } = require('mongoose')
 
 // import like
-const likeSchema = require('./Like')
+const likeSchema = require('./Like');
 
 const memeSchema = new Schema({
   meme: {
     type: String
   },
-  likes: [likeSchema]
+  likes: [likeSchema],
+  username: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  ]
+
 },
 {
   toJSON: {

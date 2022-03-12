@@ -4,20 +4,42 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-       me: async (parent, args, context) => {
-           if (context.user) {
-               var user = await User.findOne({ _id: context.user.id })
-               .select('-__v -password')
+        
+        user: async (parent, args, context) => {
+            if (context.user) {
+                const user = await User.findOne({ _id: context.user._id })
+                .select('-__v -password')
+                
+                return user;
+            }
+            
+            throw new AuthenticationError('Login to continue!');
+        },
 
-               return user
+        allUsers: async () => {
+            return User.find({})
+            .select('-__v -password');
+        },
+
+        findUser: async (parent, { username }) => {
+            return User.findOne({ username })
+            .select('-__v -password');
+        },
+
+       allMemes: async () => {
+        return Meme.find({})
+        .populate('username')
+        
+       },
+
+       myMemes: async (parent, args, context) => {
+           if (context.user) {
+               const myMemes = Meme.find({ username: context.user.username })
+
+               return myMemes;
            }
 
            throw new AuthenticationError('Login to continue!');
-       },
-
-       allMemes: async (parent, { username }) => {
-           const params = username ? { username } : {};
-           return Meme.find(params).sort({ createdAt: -1 });
        }
 
     },
@@ -46,6 +68,22 @@ const resolvers = {
             const token = signToken(user);
 
             return {token, user};
+        },
+
+        addMeme: async (parent, args, context) => {
+            if (context.user) {
+                const meme = await Meme.create({ ...args, username: context.user.username });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { memes: meme._id } },
+                    { new: true }
+                );
+
+                return meme;
+            }
+
+            return new AuthenticationError('You need to login first!');
         }
     }
 };
