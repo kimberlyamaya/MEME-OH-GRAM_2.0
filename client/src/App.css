@@ -11,42 +11,85 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+} */
+a{
+  color: black;
+}
+ul{
+  list-style-type: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bigNavbar{
+  background-color: rgb(68, 113, 140);
+}
+
+.hamburger{
+  margin: auto;
+  /* display: none; */
+  cursor: pointer;
 }
 .signupForm{
 border-top: 1px solid black;
 width: 100%;
-padding-left: 100px;
+/* padding-left: 100px; */
 height: 100vh;
 font-size: 50px;
 background-image: url("./Assets/bg.png");
 background-size: cover;
+}
+@media(max-width: 768px){
+  
+}
+@media(min-width:600px) {
+  .openbtn{
+    visibility:hidden;
+  }
+  
+
+
 
 }
+@media (max-width:600px){
+ h4,h2{
+    font-size:0.4em;
+    padding-left: 10px;
+  }
+  .btn{
+    font-size: .10em;
+    width: 60px;
+    
+  }
+  .form-group{
+    width: auto;
+    font-size: small;
+  }
+  h1{
+    font-size: 2em;
+  }
+  .header{
+    background-color: #008F95;
+  }
+  ul{
+  list-style-type: none;
+  }
+  a{
+    color: black;
+    visibility: hidden;
+  }
+  .hamburger{
+    display: block;
+    
+  }
+  
+  
+}
+/*  */

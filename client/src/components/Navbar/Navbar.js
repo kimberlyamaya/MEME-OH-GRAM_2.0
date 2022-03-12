@@ -1,5 +1,8 @@
 import React from 'react'
-import { NavLink } from "react-router-dom"
+
+// import 'react-bootstrap'
+ import { Container, NavDropdown, Nav, Navbar, NavLink } from 'react-bootstrap';
+
 const styles = {
     inline: {
         display: "flex",
@@ -8,29 +11,34 @@ const styles = {
         fontDecoration: "none"
     },
     space: {
-        marginRight: "50px"
+        marginRight: "50px",
+        
     },
     bGackcolor:{
         backGroundColor:"red"
     },
     title:{
         justifyContent:"center"
-
+    },
+    header:{backgroundColor:"lightgreen"    
     }
 }
 
-function Navbar() {
+
+  
+  
+function NavbarMain() {
     const handleClick = () => {
         console.log("click handled")
     }
     return (
         <>
-<header >
+<header className='header bigNavbar' >
     <div className="container ">
-        <div class="row">
-        <div class="col-sm">
+        <div className="row">
+        <div className="col-sm">
       <h2>
-        <a data-testid="link" href="/home">
+        <a className='logo' href="/home">
         <NavLink to="/home" onClick={() => handleClick()}>
         Logo here
         </NavLink>
@@ -38,7 +46,7 @@ function Navbar() {
      </h2>
     </div>
 
-    <div class="col-sm" style={styles.inline}>
+    <nav className="col-sm nav" style={styles.inline}>
     <ul style={styles.inline}>
         <li style={styles.space}>
         <NavLink to="/home" onClick={() => handleClick()}>
@@ -61,7 +69,7 @@ function Navbar() {
         </li>
         <li style={styles.space}>
         <NavLink to="/signupform" onClick={() => handleClick()}>
-             Signup
+             Sign Up
         </NavLink>
         </li>
         <li style={styles.space}>
@@ -70,14 +78,41 @@ function Navbar() {
         </NavLink>
         </li>
     </ul>
-       </div>
+   </nav>
      </div>
+ <Navbar bg="light" expand="lg">
+  <Container>
+    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="#link">Link</Nav.Link>
+        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+        </NavDropdown>
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
+
+   
+   
+
+
+</div>
+
+
+   <div className='col-12 text-center'><h1>Meme-OH-gram</h1>
    </div>
-   <div className='col-12 text-center'><h1>Meme-OH-gram</h1></div>
  </header>
         </>
 
     )
 }
 
-export default Navbar
+export default NavbarMain
