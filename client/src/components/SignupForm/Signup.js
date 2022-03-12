@@ -1,6 +1,6 @@
 import React from 'react'
 import "bootstrap-react"
-import Navbar from '../Navbar/Navbar'
+// import Navbar from '../Navbar/Navbar'
 const styles = {
   width: {
     with: "50%"
@@ -18,8 +18,8 @@ function Signup() {
         <div>
           <form >
             <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Email address</label>
-              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+              <label htmlFor="exampleInputEmail1">Username</label>
+              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" />
               <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Password</label>
                 <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
