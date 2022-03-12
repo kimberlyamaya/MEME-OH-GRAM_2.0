@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose')
 const bcrypt = require('bcrypt')
 
 // import Meme
-const memeSchema = require('./Meme')
+// const memeSchema = require('./Meme')
 
 const userSchema = new Schema(
   {
@@ -15,7 +15,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    memes: [memeSchema],
+    memes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Meme'
+      }
+    ]
   }
  )
 

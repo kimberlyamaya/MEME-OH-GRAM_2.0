@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 // import like
 const likeSchema = require('./Like')
