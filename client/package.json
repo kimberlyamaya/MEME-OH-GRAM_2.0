@@ -1,5 +1,5 @@
 {
-  "name": "meme-oh-gram",
+  "name": "meme-oh-gram-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
