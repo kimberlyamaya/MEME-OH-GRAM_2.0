@@ -30,7 +30,7 @@ module.exports = {
 
   // login
   async login({ body }, res) {
-    const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] })
+    const user = await User.findOne({ $or: [{ username: body.username }] })
 
     if (!User) {
       return res.status(400).json({ message: "Can't find this user" })
