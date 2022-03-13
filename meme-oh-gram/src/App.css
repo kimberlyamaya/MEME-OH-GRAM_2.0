@@ -1,38 +1,22 @@
 .App {
+  height: auto;
+  width: auto;
   text-align: center;
+  background: #008F95;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.NewMeme{
+  border: 2px solid black;
+  background-color: #E98000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Home{
+  border: 2px solid purple;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.Profile{
 
-.App-link {
-  color: #61dafb;
-}
+  border: 2px solid red;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

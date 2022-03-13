@@ -20,7 +20,7 @@ function Home() {
     };
     
     return (
-        <div>
+        <div className="Home">
             <h1>Meme-Oh-gram</h1>
             <p>like or comment below</p>
 
@@ -29,7 +29,7 @@ function Home() {
 
             <button onClick={Like}>Like</button>
             <button onClick={Comment}>Comment</button>
-            <button onClick={dontLike}>dontLike</button>
+            <button onClick={dontLike}>Nope</button>
 
         </div>
 

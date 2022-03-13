@@ -18,9 +18,9 @@ function Profile() {
 
     
     return (
-        <div>
+        <div className="Profile">
             <h2>Username</h2>
-            <h2>Location?</h2>
+            <h4>'Location'</h4>
 
 
 
