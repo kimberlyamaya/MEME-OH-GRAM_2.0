@@ -4,8 +4,16 @@ const { Schema, model } = require('mongoose')
 const likeSchema = require('./Like');
 
 const memeSchema = new Schema({
-  meme: {
+  link: {
     type: String
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  username: {
+    type: String,
+    required: true
   },
   likes: [likeSchema],
 },

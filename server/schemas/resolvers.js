@@ -5,7 +5,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         
-        user: async (parent, args, context) => {
+        me: async (parent, args, context) => {
             if (context.user) {
                 const user = await User.findOne({ _id: context.user._id })
                 .select('-__v -password')
@@ -16,23 +16,20 @@ const resolvers = {
             throw new AuthenticationError('Login to continue!');
         },
 
-        allUsers: async () => {
-            return User.find({})
-            .select('-__v -password')
-            .populate('memes')
-            .populate('likes');
-        },
-
         findUser: async (parent, { username }) => {
             return User.findOne({ username })
             .select('-__v -password')
             .populate('memes');
         },
 
-       allMemes: async () => {
-        return Meme.find({})
-       },
+        link: async (parent, { _id }) => {
+            return Meme.findOne({ _id });
+          },
 
+       memes: async (parent, { username }) => {
+           const params = username ? { username } : {};
+           return Meme.find(params).sort({ createdAt: -1 });
+       }
     },
 
     Mutation: {

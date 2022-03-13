@@ -8,7 +8,9 @@ const typeDefs = gql `
 
     type Meme {
         _id: ID
-        meme: String
+        link: String
+        username: String
+        createdAt: String
         likes: [Like]
     }
 
@@ -16,7 +18,6 @@ const typeDefs = gql `
         _id: ID
         username: String
         email: String
-        password: String
         memes: [Meme]
     }
 
@@ -26,16 +27,16 @@ const typeDefs = gql `
     }
 
     type Query {
-        user: User # your username
-        allUsers: [User] 
+        me: User # your username
         findUser(username: String!): User, # profile api
-        allMemes: [Meme], # homepage api
+        memes(username: String): [Meme] # your memes
+        link(_id: ID!): Meme
     }
 
     type Mutation {
         login(username: String, password: String): Auth
         addUser(username: String!, email: String, password: String!): Auth
-        addMeme(meme: String!): Meme
+        addMeme(link: String!): Meme
         # addLike(_id: ID!, likes: Int!): Meme
     }
 
