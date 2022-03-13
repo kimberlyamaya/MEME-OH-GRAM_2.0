@@ -72,6 +72,18 @@ const resolvers = {
             }
 
             return new AuthenticationError('You need to login first!');
+        },
+
+        addLike: async (parent, { memeId, likeCount }, context) => {
+            if (context.user) {
+                const updateMeme = await Meme.findOneAndUpdate(
+                    { _id: memeId },
+                    { $push: { likes: { likeCount, username: context.user.username }}},
+                    { new: true, runValidators: true }
+                );
+                
+                return updateMeme;
+            }
         }
     }
 };

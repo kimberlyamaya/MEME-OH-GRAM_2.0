@@ -24,8 +24,8 @@ const memeSchema = new Schema({
 })
 
 // populate virtual
-memeSchema.virtual('getLikes').get(function () {
-  return this.likes;
+memeSchema.virtual('likeCount').get(function () {
+  return this.likes.length;
 });
 
 // has to be a model so they can standalone from the user, to be displayed as generated memes
