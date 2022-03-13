@@ -18,29 +18,20 @@ const resolvers = {
 
         allUsers: async () => {
             return User.find({})
-            .select('-__v -password');
+            .select('-__v -password')
+            .populate('memes')
+            .populate('likes');
         },
 
         findUser: async (parent, { username }) => {
             return User.findOne({ username })
-            .select('-__v -password');
+            .select('-__v -password')
+            .populate('memes');
         },
 
        allMemes: async () => {
         return Meme.find({})
-        .populate('username')
-        
        },
-
-       myMemes: async (parent, args, context) => {
-           if (context.user) {
-               const myMemes = Meme.find({ username: context.user.username })
-
-               return myMemes;
-           }
-
-           throw new AuthenticationError('Login to continue!');
-       }
 
     },
 

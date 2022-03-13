@@ -8,13 +8,6 @@ const memeSchema = new Schema({
     type: String
   },
   likes: [likeSchema],
-  username: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    }
-  ]
-
 },
 {
   toJSON: {

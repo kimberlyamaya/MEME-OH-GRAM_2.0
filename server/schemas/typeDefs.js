@@ -10,7 +10,6 @@ const typeDefs = gql `
         _id: ID
         meme: String
         likes: [Like]
-        username: [User]
     }
 
     type User {
@@ -27,11 +26,10 @@ const typeDefs = gql `
     }
 
     type Query {
-        user: User
-        allUsers: [User]
-        findUser(username: String!): [User],
-        allMemes: [Meme],
-        myMemes(username: String!): [Meme],
+        user: User # your username
+        allUsers: [User] 
+        findUser(username: String!): User, # profile api
+        allMemes: [Meme], # homepage api
     }
 
     type Mutation {
