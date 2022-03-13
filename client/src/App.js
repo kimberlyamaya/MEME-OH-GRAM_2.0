@@ -10,14 +10,7 @@ import About from "./components/About/About";
 import Memes from "./components/Memes/Memes";
 import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/Signup";
-// import {ApolloClient,
-//   InMemoryCache,
-//   ApolloProvider,
-//   createHttpLink
-// }from '@apollo/client';
-// const httpLink = createHttpLink({
-//   uri: '/graphql'
-// });
+
 function App() {
   return (
     // <ApolloProvider>
@@ -31,13 +24,14 @@ function App() {
     <Route path="/loginForm" element={<LoginForm/>}/>
     <Route path="/signupForm" element={<SignupForm/>}/>
     <Route path="/logout" element={<LoginForm/>}/>
-
-
-
-    </Routes>
+     </Routes>
 </Router>);
-{/* </ApolloProvider> */}
-  // );
-  }
+
+
+   
+
+   )
+  };
+
 
 export default App;
