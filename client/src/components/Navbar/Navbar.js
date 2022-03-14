@@ -3,26 +3,26 @@ import React from 'react'
 // import 'react-bootstrap'
  import { Container, NavDropdown, Nav, Navbar, NavLink } from 'react-bootstrap';
 
-const styles = {
-    inline: {
-        display: "flex",
-        justifyContent: "right",
-        border: "solid, ",
-        fontDecoration: "none"
-    },
-    space: {
-        marginRight: "50px",
+// const styles = {
+//     inline: {
+//         display: "flex",
+//         justifyContent: "right",
+//         border: "solid, ",
+//         fontDecoration: "none"
+//     },
+//     space: {
+//         marginRight: "50px",
         
-    },
-    bGackcolor:{
-        backGroundColor:"red"
-    },
-    title:{
-        justifyContent:"center"
-    },
-    header:{backgroundColor:"lightgreen"    
-    }
-}
+//     },
+//     bGackcolor:{
+//         backGroundColor:"red"
+//     },
+//     title:{
+//         justifyContent:"center"
+//     },
+//     header:{backgroundColor:"lightgreen"    
+//     }
+// }
 
 
   
@@ -46,7 +46,7 @@ function NavbarMain() {
      </h2>
     </div>
 
-    <nav className="col-sm nav" style={styles.inline}>
+    {/* <nav className="col-sm nav" style={styles.inline}>
     <ul style={styles.inline}>
         <li style={styles.space}>
         <NavLink to="/home" onClick={() => handleClick()}>
@@ -78,20 +78,20 @@ function NavbarMain() {
         </NavLink>
         </li>
     </ul>
-   </nav>
+   </nav> */}
      </div>
  <Navbar bg="light" expand="lg">
   <Container>
-    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    <Navbar.Brand href="#home">Meme-OH-gram</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Link</Nav.Link>
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <Nav.Link href="./Home">Home</Nav.Link>
+        {/* <Nav.Link href="#link">Link</Nav.Link> */}
+        <NavDropdown title="Menu" id="basic-nav-dropdown">
+          <NavDropdown.Item href="./LoginForm">Login</NavDropdown.Item>
+          <NavDropdown.Item href="./SignupForm">Sign Up</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Logout</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
         </NavDropdown>
