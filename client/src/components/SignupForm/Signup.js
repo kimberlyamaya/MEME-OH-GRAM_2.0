@@ -1,5 +1,14 @@
-import React from 'react'
-import {Button} from "react-bootstrap"
+// -ka added useState 3/14
+import React, {useState} from 'react';
+// -ka end
+import {Button} from "react-bootstrap";
+
+// -ka added 3/14
+import {useMutation} from '@apollo/client';
+import Auth from '../../utils/auth'
+import {ADD_USER} from '../../utils/mutations'
+// -ka end
+
 // import Navbar from '../Navbar/Navbar'
 // const styles = {
 //   width: {
@@ -8,6 +17,38 @@ import {Button} from "react-bootstrap"
 
 // }
 function Signup() {
+  // -ka added 3/14
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: ''
+  })
+  const [addUser, {error}] = useMutation(ADD_USER)
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+
+    setFormState({
+      ...formState,
+      [name]: value
+    })
+  }
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault()
+
+    try {
+      const {data} = await addUser({
+        variables: {...formState}
+      })
+
+      Auth.login(data.addUser.token)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  // -ka end
+
   return (
     <>
     <div className='signupForm'>
