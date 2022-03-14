@@ -11,9 +11,6 @@ function Home() {
         console.log("like");
     };
 
-    const Comment = () => {
-        console.log("Comment");
-    };
 
     const dontLike = () => {
         console.log("dontLike");
@@ -21,15 +18,12 @@ function Home() {
     
     return (
         <div className="Home">
-            <h1>Meme-Oh-gram</h1>
+            <h1>Meme-Oh-Gram</h1>
             <p>like or comment below</p>
 
-
-
-
-            <button onClick={Like}>Like</button>
-            <button onClick={Comment}>Comment</button>
-            <button onClick={dontLike}>Nope</button>
+            <div>
+   
+        </div>
 
         </div>
 

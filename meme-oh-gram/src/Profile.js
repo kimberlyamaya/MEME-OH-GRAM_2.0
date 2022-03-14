@@ -8,25 +8,41 @@ import React from 'react';
 
 function Profile() {
     
-    const Comment = () => {
-        console.log("Comment");
-    };
+    // const Edit = () => {
+    //     console.log("Edit");
+    // };
 
-    const Like = () => {
-        console.log("Like");
-    };
+    // const Like = () => {
+    //     console.log("Like");
+    // };
+
+    // const [user, setUser] = useState ([
+//     {Username: ' US',
+//     location: ' Here',
+//     Memes: ['']
+// ]);
+
+ // const [user, setUser] = useState ([
+//     {Username: "US", location: "Here", Memes: [''],
+//     {Username: "US", location: "Here", Memes: [''],
+//     {Username: "US", location: "Here", Memes: [''],
+// ]);
+
+// {users.map(user => (
+//     <Meme name={user.Username} location={user.location} Memes{user.Memes} />
+// ))}
+
 
     
     return (
         <div className="Profile">
             <h2>Username</h2>
-            <h4>'Location'</h4>
+            <h4>'Info'</h4>
 
 
-
-
-            <button onClick={Like}>Like</button>
-            <button onClick={Comment}>Comment</button>
+<div>
+    <div></div>
+</div>
 
 
         </div>
