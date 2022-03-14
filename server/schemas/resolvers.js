@@ -4,22 +4,32 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-       me: async (parent, args, context) => {
-           if (context.user) {
-               var user = await User.findOne({ _id: context.user.id })
-               .select('-__v -password')
+        
+        me: async (parent, args, context) => {
+            if (context.user) {
+                const user = await User.findOne({ _id: context.user._id })
+                .select('-__v -password')
+                
+                return user;
+            }
+            
+            throw new AuthenticationError('Login to continue!');
+        },
 
-               return user
-           }
+        findUser: async (parent, { username }) => {
+            return User.findOne({ username })
+            .select('-__v -password')
+            .populate('memes');
+        },
 
-           throw new AuthenticationError('Login to continue!');
-       },
+        link: async (parent, { _id }) => {
+            return Meme.findOne({ _id });
+          },
 
-       allMemes: async (parent, { username }) => {
+       memes: async (parent, { username }) => {
            const params = username ? { username } : {};
            return Meme.find(params).sort({ createdAt: -1 });
        }
-
     },
 
     Mutation: {
@@ -46,6 +56,34 @@ const resolvers = {
             const token = signToken(user);
 
             return {token, user};
+        },
+
+        addMeme: async (parent, args, context) => {
+            if (context.user) {
+                const meme = await Meme.create({ ...args, username: context.user.username });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { memes: meme._id } },
+                    { new: true }
+                );
+
+                return meme;
+            }
+
+            return new AuthenticationError('You need to login first!');
+        },
+
+        addLike: async (parent, { memeId, likeCount }, context) => {
+            if (context.user) {
+                const updateMeme = await Meme.findOneAndUpdate(
+                    { _id: memeId },
+                    { $push: { likes: { likeCount, username: context.user.username }}},
+                    { new: true, runValidators: true }
+                );
+                
+                return updateMeme;
+            }
         }
     }
 };
