@@ -1,0 +1,97 @@
+*{box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+a{
+  color: black;
+}
+ul{
+  list-style-type: none;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+.bigNavbar{
+  background-color: rgb(68, 113, 140);
+}
+h3{
+  font-size: 0.3em;
+}
+.hamburger{
+  margin: auto;
+  /* display: none; */
+  cursor: pointer;
+}
+.loginForm, .signupForm{
+border-top: 1px solid black;
+width: 100%;
+/* padding-left: 100px; */
+height: 100vh;
+font-size: 50px;
+background-image: url("./Assets/bg.png");
+background-size: cover;
+}
+@media(max-width: 768px){
+  
+}
+@media(min-width:600px) {
+  .openbtn{
+    visibility:hidden;
+  }
+  
+
+
+
+}
+@media (max-width:600px){
+ h4,h2{
+    font-size:0.4em;
+    padding-left: 10px;
+  }
+  .btn{
+    font-size: .10em;
+    width: 60px;
+    
+  }
+  .form-group{
+    width: auto;
+    font-size: small;
+  }
+  h1{
+    font-size: 2em;
+  }
+  .header{
+    background-color: #008F95;
+  }
+  ul{
+  list-style-type: none;
+  }
+  .a{
+    color: black;
+    visibility: hidden;
+  }
+  .hamburger{
+    display: block;
+    
+  }
+  
+  
+}
+/*  */
