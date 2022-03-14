@@ -92,6 +92,7 @@ function NavbarMain() {
           <NavDropdown.Item href="./LoginForm">Login</NavDropdown.Item>
           <NavDropdown.Item href="./SignupForm">Sign Up</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.3">Logout</NavDropdown.Item>
+          <NavDropdown.Item href="./Profile">Profile</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
         </NavDropdown>

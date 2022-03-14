@@ -21,8 +21,8 @@ function Login() {
                 <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
               </div>
               <button type="submit" className="btn btn-secondary btn-lg">submit</button>
-              <h3>Don't have an account?</h3>
-              <h3>Sign Up instead</h3>
+              <h3 className='h3'>Don't have an account?</h3>
+              <h3 className='h3'>Sign Up instead</h3>
               
               <a href="./SignupForm" class="btn btn-primary stretched-link">Sign Up</a>
               {/* <button href="#SignupForm" type="submit" className="btn btn-secondary btn-lg">Sing Up</button> */}
