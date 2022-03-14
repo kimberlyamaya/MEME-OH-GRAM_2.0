@@ -1,15 +1,10 @@
 // *************** SANTI I ***************
-
+import "./App.css";
 // import logo from './logo.svg';
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // import {setContext} from "@apollo/client/link/context"
-<<<<<<< HEAD
-import "./App.css";
-=======
-
->>>>>>> f598976074fcbbbeea0ba4f0ca86ac88a50f1ebc
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
