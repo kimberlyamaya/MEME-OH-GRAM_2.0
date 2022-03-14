@@ -1,3 +1,6 @@
+/* ** SANTI I ** */
+
+
 *{box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -31,13 +34,15 @@ ul{
 .bigNavbar{
   background-color: rgb(68, 113, 140);
 }
-
+.h3{
+  font-size: 0.3em;
+}
 .hamburger{
   margin: auto;
   /* display: none; */
   cursor: pointer;
 }
-.signupForm{
+.loginForm, .signupForm{
 border-top: 1px solid black;
 width: 100%;
 /* padding-left: 100px; */
@@ -81,7 +86,7 @@ background-size: cover;
   ul{
   list-style-type: none;
   }
-  a{
+  .a{
     color: black;
     visibility: hidden;
   }
@@ -93,3 +98,90 @@ background-size: cover;
   
 }
 /*  */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ** SETHS ** */
+
+ *{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+} 
+
+.App {
+  height: auto;
+  width: auto;
+  text-align: center;
+  background: #008F95;
+  justify-content: space-around;
+  
+}
+
+.NewMeme{
+  border: 2px solid black;
+  background-color: #E98000;
+  height: 200px;
+  width: 200px;
+  border-radius: 30px;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.Home{
+  border: 4px solid purple;
+
+}
+
+.Profile{
+
+  border: 4px solid red;
+
+}
+
+.Meme{
+  border: 2px solid black;
+  background-color: #E98000;
+  height: 200px;
+  width: 200px;
+  border-radius: 30px;
+  display: inline-flex;
+  flex-direction: column;
+
+  
+}
+
+.memeButtons{
+
+  color: #E24E42;
+  font: 20px;
+}
+
+
+/* .newMemeButtons{
+
+
+} */
+
+.red{
+
+  color: #E24E42;
+  font: 20px;
+}
+
+.Home { 
+  background-image: url("./Assets/bg.png");
+}
+
+.Profile { 
+  background-image: url("./Assets/bg.png");
+}
