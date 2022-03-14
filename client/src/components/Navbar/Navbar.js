@@ -1,7 +1,11 @@
 import React from 'react'
 
 // import 'react-bootstrap'
- import { Container, NavDropdown, Nav, Navbar, NavLink } from 'react-bootstrap';
+import { Container, NavDropdown, Nav, Navbar, NavLink } from 'react-bootstrap';
+
+// -ka added 3/14
+import Auth from '../../utils/auth'
+// -ka end
 
 // const styles = {
 //     inline: {
@@ -28,6 +32,13 @@ import React from 'react'
   
   
 function NavbarMain() {
+    // -ka added 03/14
+    const logout = event => {
+      event.preventDefault();
+      Auth.logout()
+    }
+    // -ka end
+
     const handleClick = () => {
         console.log("click handled")
     }
@@ -91,7 +102,9 @@ function NavbarMain() {
         <NavDropdown title="Menu" id="basic-nav-dropdown">
           <NavDropdown.Item href="./LoginForm">Login</NavDropdown.Item>
           <NavDropdown.Item href="./SignupForm">Sign Up</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Logout</NavDropdown.Item>
+          {/* -ka updated href to implement logout */}
+          <NavDropdown.Item href="/" onClick={logout}>Logout</NavDropdown.Item>
+          {/* -ka end */}
           <NavDropdown.Item href="./Profile">Profile</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
