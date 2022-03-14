@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo&family=Roboto:wght@300&family=Shalimar&display=swap");
+
+:root   {
+    --primaryColor: #E24E42;
+    --secondaryColor: #E98000;
+    --tertiaryColor: #E86E80;
+    --fourthColor: #008F95;
+    --accentColor: teal;
+    --additionalColor: #a9dbce;
+}
+/*Page resets*/
+*   {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body    {
+    font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
+}
+
+a, a:hover, a:link, a:visited, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.memes  {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accentColor);
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.memes img  {
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.8); 
+    border-radius: 1.5rem;
+    max-width: 50%;
+    height: auto;
+    margin-top: 1rem;
+}
+
+.nextBtn   {
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.8);
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    background-color: var(--primaryColor);
+    color: white;
+    font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    width: 10rem;
+    border-radius: 1rem;
+}
+.createBtn  {
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.8);
+    padding: 0.5rem;
+    margin: 2rem 0;
+    background-color: var(--secondaryColor);
+    color: white;
+    font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    width: 10rem;
+    border-radius: 1rem;
+}

@@ -1,11 +1,15 @@
 // *************** SANTI I ***************
 
 // import logo from './logo.svg';
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // import {setContext} from "@apollo/client/link/context"
+<<<<<<< HEAD
 import "./App.css";
+=======
+
+>>>>>>> f598976074fcbbbeea0ba4f0ca86ac88a50f1ebc
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
@@ -13,6 +17,7 @@ import Memes from "./components/Meme/Meme";
 import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/Signup";
 import Profile from "./components/Profile/Profile";
+import MemeGenerator from "./components/Meme-Generator";
 // import {ApolloClient,
 //   InMemoryCache,
 //   ApolloProvider,
@@ -25,34 +30,27 @@ function App() {
   return (
     // <ApolloProvider>
     <Router>
-    <Navbar />
-    <Routes>
-    <Route path="/" element={<Home/>}/>
-    <Route path="/home" element={<Home/>}/>
-    <Route path="/about" element={<About/>}/>
-    <Route path="/memes" element={<Memes/>}/>
-    <Route path="/loginForm" element={<LoginForm/>}/>
-    <Route path="/signupForm" element={<SignupForm/>}/>
-    <Route path="/logout" element={<LoginForm/>}/>
-    <Route path="/profile" element={<Profile/>}/>
-
-
-
-    </Routes>
-</Router>);
-{/* </ApolloProvider> */}
-  // );
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/memes" element={<Memes />} />
+        <Route path="/loginForm" element={<LoginForm />} />
+        <Route path="/signupForm" element={<SignupForm />} />
+        <Route path="/logout" element={<LoginForm />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/meme" element={<MemeGenerator />} />
+      </Routes>
+    </Router>
+  );
+  {
+    /* </ApolloProvider> */
   }
+  // );
+}
 
 export default App;
-
-
-
-
-
-
-
-
 
 // *************** SETHS ***************
 
@@ -74,7 +72,7 @@ export default App;
 //   const increment = () => {
 //     setCount(count + 1)
 //     setRed(!isRed)
-  
+
 //     // const increment = () => {
 //     //   setCount(count + 1)
 //     //   setPurple(!isPurple)
@@ -82,18 +80,13 @@ export default App;
 //   }
 //   return (
 
-
 //     <div className="App">
-
-    
 
 //       <div>
 //         <Home />
 //         <h3 className={isRed ? 'memeButtons' : ""}>Likez</h3>
 //         <button onClick={increment}>Liker</button>
 //         <h5>{count}</h5>
-
-
 
 //         <Meme name="Meme1" likes={count} />
 //         <Meme name="Meme2" likes={count} />
@@ -102,9 +95,7 @@ export default App;
 
 //       </div>
 
-
 //       <Profile />
-
 
 //       <NewMeme name="new1" likes="" />
 //       <NewMeme name="new2" likes="" />
@@ -113,15 +104,10 @@ export default App;
 
 //     </div>
 
-
-
-
-
 //   );
 // }
 
 // export default App;
-
 
 // <>
 
