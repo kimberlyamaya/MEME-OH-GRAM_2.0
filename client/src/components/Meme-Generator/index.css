@@ -6,7 +6,7 @@
     --tertiaryColor: #E86E80;
     --fourthColor: #008F95;
     --accentColor: teal;
-    --additionalColor: #a9dbce;
+    --additionalColor: #fec260;
 }
 /*Page resets*/
 *   {
@@ -17,6 +17,7 @@
 
 body    {
     font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
+    color: white;
 }
 
 a, a:hover, a:link, a:visited, a:active {
@@ -30,7 +31,7 @@ a, a:hover, a:link, a:visited, a:active {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: var(--accentColor);
+    background-color: var(--fourthColor);
     padding: 1rem;
     margin: 0 auto;
 }
@@ -38,30 +39,50 @@ a, a:hover, a:link, a:visited, a:active {
 .memes img  {
     box-shadow: 6px 6px 6px rgba(0,0,0,0.8); 
     border-radius: 1.5rem;
-    max-width: 50%;
+    max-width: 30%;
     height: auto;
-    margin-top: 1rem;
+    margin: 1rem;
 }
 
 .nextBtn   {
     box-shadow: 6px 6px 6px rgba(0,0,0,0.8);
     padding: 0.5rem;
     margin-bottom: 2rem;
-    background-color: var(--primaryColor);
+    background-color: var(--additionalColor);
     color: white;
     font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
     font-weight: bold;
     width: 10rem;
     border-radius: 1rem;
+    transition: 0.4s ease-in-out;
 }
 .createBtn  {
     box-shadow: 6px 6px 6px rgba(0,0,0,0.8);
     padding: 0.5rem;
-    margin: 2rem 0;
+    margin: 1rem 0;
     background-color: var(--secondaryColor);
     color: white;
     font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
     font-weight: bold;
     width: 10rem;
     border-radius: 1rem;
+    transition: 0.4s ease-in-out;
+}
+.nextBtn:hover, .createBtn:hover   {
+    background-color: var(--primaryColor);
+    font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    transform: scale(1.25);
+}
+.caption {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: lighter;
+    color: var(--fourthColor);
+    border-radius: 0.25rem;
+    border: 1px solid var(--accentColor);
+    text-align: center;
+    min-width: 8rem;
+    padding: .25rem;
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.8);
 }

@@ -13,6 +13,7 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/Signup";
 import Profile from "./components/Profile/Profile";
 import MemeGenerator from "./components/Meme-Generator";
+import MemeCreated from "./components/Meme-Created";
 // import {ApolloClient,
 //   InMemoryCache,
 //   ApolloProvider,
@@ -36,6 +37,7 @@ function App() {
         <Route path="/logout" element={<LoginForm />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/meme" element={<MemeGenerator />} />
+        <Route path="/created" element={<MemeCreated />} />
       </Routes>
     </Router>
   );
