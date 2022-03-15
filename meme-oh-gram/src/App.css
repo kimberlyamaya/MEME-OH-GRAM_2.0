@@ -52,16 +52,34 @@
 
   color: #E24E42;
   font: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 
-.newMemeButtons{
-
+.newMemeButtonLike{
+  
+  margin: 5px;
 
 }
 
-.red{
+.memeButtonLike{
+margin: 5px;
+
+} 
+
+.memeButtonNope{
+margin: 5px;
+
+}
+
+/* .red{
 
   color: #E24E42;
   font: 20px;
 }
+
+.purple{
+
+  font: 20px;
+} */
