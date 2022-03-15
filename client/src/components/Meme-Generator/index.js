@@ -8,7 +8,7 @@ const MemeGenerator = () => {
   //using useSate to set memes as an empty array, initialize memeIndex to 0 so we can increment to go to the next meme and captionBox to an empty array.
   const [memes, setMemes] = useState([]);
   const [memeIndex, setMemeIndex] = useState(0);
-  const [captionBox, setCaptionBox] = useState([]);
+  const [textInputBox, setTextInputBox] = useState([]);
 
   //using Fisher-Yates / Durstenfeld shuffle to shuffle memes array once fetched courtesy StackOverflow
   const shuffle = (array) => {
@@ -33,9 +33,11 @@ const MemeGenerator = () => {
     });
   }, []);
 
-  //using useEffect to track memeIndex for current meme to ensure the correct amount of capture inputs displays. Each meme has different amounts of captions boxes (1-3)
+  /*using useEffect to track data.meme.box_count for current meme to ensure the correct amount of textbox inputs displays for the user. So we want to store the current meme i.e. memes[memeIndex] and  create an array using the Array() constructor with a length = box_count and initilize each array index to a empty string. So we can push the user text into. The useEffect hook will need access memeIndex and memes in dependency array to acees the info it needs*/
   useEffect(() => {
-
+    if (memeIndex.length) {
+      setTextInputBox(Array(memes[memeIndex].box_count).fill(''));
+    }
   }, [memeIndex, memes]) 
 
   return (
@@ -43,11 +45,17 @@ const MemeGenerator = () => {
     memes.length ? (
       <div className="memes">
         <img src={memes[memeIndex].url} alt="meme" />
+        {
+          //this takes the created array
+          textInputBox.map((c, index) => (
+           <input key={index} /> 
+          ))
+        }
         <button onClick={() => console.log("generate")} className="createBtn">
           {" "}
           Create
         </button>
-        <button onClick={() => setMemeIndex(memeIndex + 1)} className="nextBtn">
+        <button onClick={() => setMemeIndex(memeIndex +1)} className="nextBtn">
           {" "}
           Next Meme
         </button>
