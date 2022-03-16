@@ -28,11 +28,13 @@ const Profile = () => {
 
     const { loading, error, data } = useQuery(QUERY_ALL_MEMES)
 
+    const allMemes =  data?.allMemes || []
+
     console.log(data)
     console.log(error)
     console.log(JSON.stringify(error, null, 2));
 
-    const newmeme=["https://i.imgflip.com/3qqcim.png", "newmeme2", "newmeme3", "newmeme4", "newmeme5", "newmeme6", "newmeme7", "newmeme8"]
+    const newmeme=["newmeme1", "newmeme2", "newmeme3", "newmeme4", "newmeme5", "newmeme6", "newmeme7", "newmeme8"]
 
     // ****** auth not working ******
     // const loggedIn = Auth.loggedIn();
@@ -52,15 +54,21 @@ const Profile = () => {
         {/* <h2>{userData.me.username}</h2> */}
         {/* ****** auth not working ****** */}
 
-        <h2>'Blue'</h2>
+        {/* <p gotitMemes={profileMemes.allMemes.link}></p> */}
+
+        <h2>username</h2>
         <h4>'Info'</h4>
 
-        <p>{data.allMemes.link}</p>
-
-        {newmeme.map((newmeme)=>(
+        {/* - seth start */}
+        {/* {newmeme.map((newmeme)=>(
         <NewMeme name={newmeme}  />
-        
-        ))}
+        ))} */}
+        {/* - seth end */}
+
+
+        {/* -ka added 03/16 */}
+        <NewMeme allMemes={allMemes} />
+        {/* -ka end */}
 
 
         </div> 

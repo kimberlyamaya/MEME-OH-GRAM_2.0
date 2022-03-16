@@ -72,9 +72,6 @@ export const QUERY_ALL_MEMES = gql`
       username
       createdAt
       likeCount
-      likes {
-        likeStorage
-      }
     }
   }
 `

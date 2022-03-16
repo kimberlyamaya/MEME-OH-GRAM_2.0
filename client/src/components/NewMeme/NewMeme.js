@@ -10,8 +10,10 @@ import React , { useState } from 'react'
     };
 
 
-function NewMeme({name,}) {
+// function NewMeme({name,}) {
 
+// -ka added 3/16
+function NewMeme({ allMemes }) {
 
     const [count, setCount] = useState(0);
     const [vote, setVote ] = useState(false);
@@ -29,26 +31,45 @@ function NewMeme({name,}) {
         setVote(false)
     }
 
+    // - ka added 3/16
+    if (!allMemes.length) {
+        return <h3>You haven't created any Memes...</h3>
+    }
+
     return (
+
+//  -seths
+//  <div className="NewMeme">
+//         <h3><img src={name} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
+//         <h5>{count}</h5>
+
+// <div className="cardBody2"> </div>
+
+// </div> 
+//  -seths end
+
+
+//  -ka added 03/16 
 <>
-<div className="NewMeme">
-        <h3><img src={name} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
+{allMemes &&
+  allMemes.map(allMemes => (
+    <>
+    <div className="NewMeme">
+        <h3><img src={allMemes.link} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
         <h5>{count}</h5>
 
-<div className="cardBody2"> </div>
+    <div className="cardBody2"> </div>
 
-</div>
+    </div>
 
-<div class="newMemeButtonLike newMemeButtonEdit">
-{unVote&&<button onClick={increment}>Like</button>}
-{vote&&<button  onClick={decrement}>Unlike</button>}
-<button onClick={Edit}>Edit</button></div>
-
-
-
+    <div class="newMemeButtonLike newMemeButtonEdit">
+    {unVote&&<button onClick={increment}>Like</button>}
+    {vote&&<button  onClick={decrement}>Unlike</button>}
+    <button onClick={Edit}>Edit</button></div>
+    </>
+  ))}
 </>
-
-    )
+)
 }
 
 
