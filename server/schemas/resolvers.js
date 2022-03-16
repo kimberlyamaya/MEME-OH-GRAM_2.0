@@ -33,11 +33,11 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: (parent, args) => {
+        addUser: async (parent, args) => {
             const newUser = User.create(args);
             const token = signToken(newUser);
 
-            return { newUser, token };
+            return { token, newUser };
         },
 
         login: async (parent, { username, password }) => {

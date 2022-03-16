@@ -24,15 +24,14 @@ module.exports = {
             req.user = data;
         } catch {
             console.log('This token doesn`t work.');
-            return res.status(400).json({ message: 'invalid token! '});
         }
 
         return req;
     },
 
-    signToken: function ({ username, _id }) {
-        const payload = { username, _id };
+    signToken: function ({ username, email, _id }) {
+        const payload = { username, email, _id };
 
-        return jwt.sign({ data: payload }, secret);
-    },
+        return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+    }
 };
