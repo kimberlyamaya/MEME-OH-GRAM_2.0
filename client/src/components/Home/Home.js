@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Memes from '../Meme/Meme';
+import React, {useState} from 'react';
+import Meme from '../Meme/Meme'
 // import ReactDOM from 'react-dom';
 // import './index.css';
 // import App from '../../client/src/App';
@@ -17,36 +17,21 @@ function Home() {
         console.log("dontLike");
     };
 
-    const [isRed, setRed] = useState(false);
-    const [isPurple, setPurple] = useState(false);
-
     const [count, setCount] = useState(0);
 
-    const increment = () => {
-    setCount(count + 1)
-    setRed(!isRed)
-    }
-  
-    // const increment = () => {
-    //   setCount(count + 1)
-    //   setPurple(!isPurple)
-
+    const memes=["meme1", "meme2", "meme3", "meme4", "meme5", "meme6", "meme7", "meme8"]
+    // const newmeme=["newmeme1", "newmeme2", "newmeme3", "newmeme4", "newmeme5", "newmeme6", "newmeme7", "newmeme8"]
     
     return (
+
         <div className="Home">
             <h1>Meme-Oh-Gram</h1>
             <p>like or comment below</p>
 
-            <h3 className={isRed ? 'memeButtons' : ""}>Likez</h3>
-            <button onClick={increment}>Liker</button>
-            <h5>{count}</h5>
-
-
-
-           <Memes name="Meme1" likes={count} />
-           <Memes name="Meme2" likes={count} />
-           <Memes name="Meme3" likes={count} />
-           <Memes name="Meme4" likes={count} />
+            
+        {memes.map((meme)=>(
+          <Meme name={meme}  />
+        ))}
 
             <div>
    

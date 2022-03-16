@@ -1,5 +1,4 @@
 import React from 'react';
-import NewMeme from '../Meme/Meme'
 // import ReactDOM from 'react-dom';
 // import './index.css';
 // import App from '../../client/src/App';
@@ -40,11 +39,6 @@ function Profile() {
             <h2>Username</h2>
             <h4>'Info'</h4>
 
-            <NewMeme name="new1" likes="" />
-            <NewMeme name="new2" likes="" />
-            <NewMeme name="new3" likes="" />
-            <NewMeme name="new4" likes="" />
-
 
 <div>
     <div></div>
@@ -62,4 +56,3 @@ function Profile() {
 }
 
 export default Profile;
-
