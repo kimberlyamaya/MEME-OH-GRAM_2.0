@@ -15,7 +15,7 @@ const memeSchema = new Schema({
     type: String,
     required: true
   },
-  likes: [likeSchema],
+  likes: [likeSchema]
 },
 {
   toJSON: {

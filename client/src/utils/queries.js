@@ -11,9 +11,8 @@ export const QUERY_ME = gql`
       link
       username
       createdAt
-      likesCount
+      likeCount
       likes {
-        _id
         likeStorage
       }
     }
@@ -41,12 +40,11 @@ export const QUERY_LINK = gql`
     link(_id: $id) {
       _id
       link
-      createdAt
       username
+      createdAt
       likeCount
       likes {
-        _id
-        likeStorage
+        ikeStorage
       }
     }
   }
@@ -57,26 +55,24 @@ export const QUERY_MEMES = gql`
     memes(username: $username) {
       _id
       link
-      createdAt
       username
+      createdAt
       likeCount
       likes {
-        _id
         likeStorage
       }
     }
   }
 `
 export const QUERY_ALL_MEMES = gql`
-  query allMemes($link: String!) {
-    allMemes(link: $link) {
+  query allMemes {
+    allMemes {
       _id
       link
-      createdAt
       username
+      createdAt
       likeCount
       likes {
-        _id
         likeStorage
       }
     }
