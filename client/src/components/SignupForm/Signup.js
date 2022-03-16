@@ -1,5 +1,14 @@
-import React from 'react'
-import {Button} from "react-bootstrap"
+// -ka added useState 3/14
+import React, { useState } from 'react';
+// -ka end
+import { Button } from "react-bootstrap";
+
+// -ka added 3/14
+import { useMutation } from '@apollo/client';
+import Auth from '../../utils/auth'
+import { ADD_USER } from '../../utils/mutations'
+// -ka end
+
 // import Navbar from '../Navbar/Navbar'
 // const styles = {
 //   width: {
@@ -8,6 +17,38 @@ import {Button} from "react-bootstrap"
 
 // }
 function Signup() {
+  // -ka added 3/14
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: ''
+  })
+  const [addUser, {error}] = useMutation(ADD_USER)
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+
+    setFormState({
+      ...formState,
+      [name]: value
+    })
+  }
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault()
+
+    try {
+      const {data} = await addUser({
+        variables: {...formState}
+      })
+
+      Auth.login(data.addUser.token)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  // -ka end
+
   return (
     <>
     <div className='signupForm'>
@@ -16,15 +57,23 @@ function Signup() {
       <h4>Signup now to embark in joy ride  </h4>
       <div className='container'>
         <div>
-          <form >
+          {/* -ka added onSumbit 3/14 */}
+          <form onSubmit={handleFormSubmit}>
+            {/* -ka end */}
             <div className="form-group">
             <label htmlForm="formGroupExampleInput">Username</label>
-            <input type="text" class="form-control" placeholder="Username"/>
+            {/* -ka added value=, onChange=, name=, changed type=text to type=username on 3/14 */}
+            <input type="username" name="username" class="form-control" placeholder="Username" value={formState.username} onChange={handleChange}/>
+            {/* -ka end */}
               <div className="form-group ">
               <label htmlFor="exampleInputEmail1">Email address</label>
-              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                {/* -ka added value=, onChange=, name=, on 3/14 */}
+                <input type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value={formState.email} onChange={handleChange}/>
+                {/* -ka end */}
               <label htmlFor="exampleInputPassword1">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                {/* -ka added value=, onChange=, name=, on 3/14 */}
+                <input type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" value={formState.password} onChange={handleChange}/>
+                {/* -ka end */}
               </div>
               <button type="submit" className="btn btn-secondary btn-lg">submit</button>
               <h3 className='h3'>Have an account?</h3>

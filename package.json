@@ -20,7 +20,7 @@
     "url": "https://github.com/kimberlyamaya/meme-OH-gram/issues"
   },
   "homepage": "https://github.com/kimberlyamaya/meme-OH-gram#readme",
-  "devDependencies": {
+  "dependencies": {
     "concurrently": "^7.0.0"
   }
 }
