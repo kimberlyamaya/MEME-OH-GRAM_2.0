@@ -29,7 +29,11 @@ const resolvers = {
        memes: async (parent, { username }) => {
            const params = username ? { username } : {};
            return Meme.find(params).sort({ createdAt: -1 });
-       }
+       },
+
+       allMemes: async () => {
+        return Meme.find().sort({ createdAt: -1 });
+        }
     },
 
     Mutation: {

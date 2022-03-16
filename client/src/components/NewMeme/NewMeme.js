@@ -32,7 +32,7 @@ function NewMeme({name,}) {
     return (
 <>
 <div className="NewMeme">
-        <h3>{name}</h3>
+        <h3><img src={name} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
         <h5>{count}</h5>
 
 <div className="cardBody2"> </div>
