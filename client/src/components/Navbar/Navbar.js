@@ -51,7 +51,7 @@ function NavbarMain() {
       <h2>
         <a className='logo' href="/home">
         <NavLink to="/home" onClick={() => handleClick()}>
-        Logo here
+        <img src="../../Assets/logo.png" alt="meme-oh-gram-logo"/>
         </NavLink>
         </a>
      </h2>
