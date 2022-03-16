@@ -39,14 +39,12 @@ const MemeGenerator = () => {
 
   // this function creates the POST method by sending the captions and the meme back to the api to create the meme.
   const createMeme = () => {
-    console.log('clicked')
+    console.log("clicked");
     const captionedMeme = memes[memeIndex];
     const formData = new FormData();
-    
+
     formData.append("username", "lssdavies");
-    console.log(formData);
     formData.append("password", "meme-OH-gram");
-    console.log(formData);
     formData.append("template_id", captionedMeme.id);
     textInputBox.forEach((t, index) =>
       formData.append(`boxes[${index}][caption]`, t)
@@ -57,14 +55,12 @@ const MemeGenerator = () => {
       method: "POST",
       body: formData,
     }).then((res) => {
-      
       res.json().then((res) => {
-        history.push(`/generated?url=${captionedMeme.url}`);
-        console.log(res)
+        history.push(`/created?url=${captionedMeme.url}`);
+        console.log(res);
       });
     });
   };
-
 
   //using useEffect to perform fetch request when componet loads
   useEffect(() => {
