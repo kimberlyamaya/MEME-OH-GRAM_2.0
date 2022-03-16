@@ -67,3 +67,18 @@ export const QUERY_MEMES = gql`
     }
   }
 `
+export const QUERY_ALL_MEMES = gql`
+  query allMemes($link: String!) {
+    allMemes(link: $link) {
+      _id
+      link
+      createdAt
+      username
+      likeCount
+      likes {
+        _id
+        likeStorage
+      }
+    }
+  }
+`

@@ -31,6 +31,7 @@ const typeDefs = gql `
         me: User # your username
         findUser(username: String!): User, # profile api
         memes(username: String): [Meme] # your memes
+        allMemes: [Meme]
         link(_id: ID!): Meme
     }
 
