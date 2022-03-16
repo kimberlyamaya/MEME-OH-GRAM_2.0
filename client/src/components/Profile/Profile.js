@@ -1,4 +1,5 @@
 import React from 'react';
+import NewMeme from '../NewMeme/NewMeme'
 // import ReactDOM from 'react-dom';
 // import './index.css';
 // import App from '../../client/src/App';
@@ -7,6 +8,8 @@ import React from 'react';
 
 
 function Profile() {
+
+    const newmeme=["newmeme1", "newmeme2", "newmeme3", "newmeme4", "newmeme5", "newmeme6", "newmeme7", "newmeme8"]
     
     // const Edit = () => {
     //     console.log("Edit");
@@ -35,12 +38,15 @@ function Profile() {
 
     
     return (
-        <div className="Profile">
-            <h2>Username</h2>
-            <h4>'Info'</h4>
+    <div className="Profile">
+        <h2>Username</h2>
+        <h4>'Info'</h4>
+        {newmeme.map((newmeme)=>(
+        <NewMeme name={newmeme}  />
+        
+        ))}
 
-
-<div>
+    <div>
     <div></div>
 </div>
 

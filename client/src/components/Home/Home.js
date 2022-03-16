@@ -20,7 +20,6 @@ function Home() {
     const [count, setCount] = useState(0);
 
     const memes=["meme1", "meme2", "meme3", "meme4", "meme5", "meme6", "meme7", "meme8"]
-    // const newmeme=["newmeme1", "newmeme2", "newmeme3", "newmeme4", "newmeme5", "newmeme6", "newmeme7", "newmeme8"]
     
     return (
 
