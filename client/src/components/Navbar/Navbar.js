@@ -38,11 +38,14 @@ function NavbarMain() {
         <div className="row">
         <div className="col-sm">
       <h2>
-        <a className='logo' href="/home">
+        {/* <a className='logo' href="/home"> */}
+        <div className='logo'  >
+
         <NavLink to="/home" onClick={() => handleClick()}>
         Logo here
         </NavLink>
-        </a>
+        </div>
+        {/* </a> */}
      </h2>
     </div>
 
