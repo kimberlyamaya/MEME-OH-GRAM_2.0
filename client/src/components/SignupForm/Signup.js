@@ -61,9 +61,9 @@ function Signup() {
           <form onSubmit={handleFormSubmit}>
             {/* -ka end */}
             <div className="form-group">
-            <label htmlForm="formGroupExampleInput">Username</label>
+            <label htmlFor="formGroupExampleInput">Username</label>
             {/* -ka added value=, onChange=, name=, changed type=text to type=username on 3/14 */}
-            <input type="username" name="username" class="form-control" placeholder="Username" value={formState.username} onChange={handleChange}/>
+            <input type="username" name="username" className="form-control" placeholder="Username" value={formState.username} onChange={handleChange}/>
             {/* -ka end */}
               <div className="form-group ">
               <label htmlFor="exampleInputEmail1">Email address</label>

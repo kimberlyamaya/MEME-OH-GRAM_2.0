@@ -49,11 +49,11 @@ function NavbarMain() {
         <div className="row">
         <div className="col-sm">
       <h2>
-        <a className='logo' href="/home">
+        <div className='logo' href="/home">
         <NavLink to="/home" onClick={() => handleClick()}>
         Logo here
         </NavLink>
-        </a>
+        </div>
      </h2>
     </div>
 

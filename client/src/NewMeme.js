@@ -21,7 +21,7 @@ function NewMeme({name, likes}) {
 
 </div>
 
-<div class="newMemeButtons">
+<div className="newMemeButtons">
 <button onClick={Like}>Like</button>
 <button onClick={Edit}>Edit</button>
 </div>

@@ -6,30 +6,36 @@ export const QUERY_ME = gql`
     _id
     username
     email
-    meme {
+    memes {
       _id
       link
-      username
       createdAt
-      likesCount
+      username
       likes {
         _id
         likeStorage
       }
+      likeCount
     }
   }
 }
 `
+
 export const QUERY_FIND_USER = gql`
   query findUser($username: String!) {
     findUser(username: $username) {
       _id
       username
       email
-      meme {
+      memes {
         _id
         link
         createdAt
+        username
+        likes {
+          _id
+          likeStorage
+        }
         likeCount
       }
     }
@@ -48,6 +54,7 @@ export const QUERY_LINK = gql`
         _id
         likeStorage
       }
+      likeCount
     }
   }
 `
@@ -59,11 +66,11 @@ export const QUERY_MEMES = gql`
       link
       createdAt
       username
-      likeCount
       likes {
         _id
         likeStorage
       }
+      likeCount
     }
   }
 `

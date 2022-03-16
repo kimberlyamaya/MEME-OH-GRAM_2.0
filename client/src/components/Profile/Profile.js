@@ -5,9 +5,23 @@ import NewMeme from '../Meme/Meme'
 // import App from '../../client/src/App';
 // import reportWebVitals from '../../client/src/reportWebVitals';
 
+// -ka added 03/14
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
+// -ka end
 
 
 function Profile() {
+
+    // -ka added 03/14
+    const { data } = useQuery(QUERY_ME)
+
+    console.log(data)
+
+    const userData = data?.me || []
+
+    console.log(userData)
+    // -ka end
     
     // const Edit = () => {
     //     console.log("Edit");
@@ -37,7 +51,8 @@ function Profile() {
     
     return (
         <div className="Profile">
-            <h2>Username</h2>
+            {/* -ka map username 3/14 */}
+            <h2>{userData.username}</h2>
             <h4>'Info'</h4>
 
             <NewMeme name="new1" likes="" />
