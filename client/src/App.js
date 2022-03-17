@@ -12,6 +12,7 @@ import Memes from "./components/Meme/Meme";
 import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/Signup";
 import Profile from "./components/Profile/Profile";
+import NoMatch from './components/NoMatch/NoMatch';
 
 // -ka added 3/14
 import {ApolloClient,
@@ -60,6 +61,8 @@ function App() {
         <Route path="/signupForm" element={<SignupForm/>}/>
         <Route path="/logout" element={<LoginForm/>}/>
         <Route path="/profile" element={<Profile/>}/>
+
+        <Route element={<NoMatch/>}/>
       </Routes>
       </>
       </Router>

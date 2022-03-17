@@ -12,9 +12,6 @@ export const QUERY_ME = gql`
       username
       createdAt
       likeCount
-      likes {
-        likeStorage
-      }
     }
   }
 }
@@ -28,6 +25,7 @@ export const QUERY_FIND_USER = gql`
       meme {
         _id
         link
+        username
         createdAt
         likeCount
       }
@@ -43,9 +41,6 @@ export const QUERY_LINK = gql`
       username
       createdAt
       likeCount
-      likes {
-        ikeStorage
-      }
     }
   }
 `
@@ -58,9 +53,6 @@ export const QUERY_MEMES = gql`
       username
       createdAt
       likeCount
-      likes {
-        likeStorage
-      }
     }
   }
 `
