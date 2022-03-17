@@ -1,6 +1,6 @@
 import React from 'react';
 import NewMeme from '../NewMeme/NewMeme';
-import {Navigate} from 'react-router-dom' 
+// import {Navigate} from 'react-router-dom' 
 
 import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -11,7 +11,6 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_ALL_MEMES } from '../../utils/queries';
 
-// -ka end
 
 // import ReactDOM from 'react-dom';
 // import './index.css';
@@ -46,21 +45,18 @@ const Profile = () => {
     // -- seths
     // const newmeme=["newmeme1", "newmeme2", "newmeme3", "newmeme4", "newmeme5", "newmeme6", "newmeme7", "newmeme8"]
     // -- seths end
-
-    // ****** auth not working ******
-    // const loggedIn = Auth.loggedIn();
-    // ****** auth not working ******
-
    
     if (loading ) return <p>loading...</p>
     if (error ) return <p>I'm working on it..</p>
 
     return (
         <>
-        {/* if token > display memes, no token > reroute to signupForm */}
-        {token && (<p>you're logged in!</p>)}
-        {!token && (<Navigate to="/signupForm"/>)}
+        {/* if token > display memes, no token > display message to signhup */}
+
+        {token && (
+          
         <div className="Profile">
+        <p>you're logged in!</p> 
  
         <h2>Username</h2>
         <h4>'Info'</h4>
@@ -76,16 +72,19 @@ const Profile = () => {
         <NewMeme allMemes={allMemes} />
         {/* -ka end */}
 
+        </div> )}
 
-        </div> 
-        {/* ****** auth not working ****** */}
-        {/* ) : null } */}
-        {/* ****** auth not working ****** */}
+        {!token && (
+        
+        <div className="Profile">
+        <p>You need to be logged in to see this. Click here to <a href="/signupForm">signup!</a></p>
+        </div>
+        
+        )}
 
+        
         </>
-
     );
-
 };
 
 export default Profile;

@@ -62,7 +62,7 @@ function App() {
         <Route path="/logout" element={<LoginForm/>}/>
         <Route path="/profile" element={<Profile/>}/>
 
-        <Route element={<NoMatch/>}/>
+        <Route path="*" element={<NoMatch/>}/>
       </Routes>
       </>
       </Router>
