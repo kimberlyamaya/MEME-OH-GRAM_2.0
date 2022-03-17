@@ -1,5 +1,6 @@
 import React from 'react';
 import NewMeme from '../NewMeme/NewMeme';
+import {Navigate} from 'react-router-dom' 
 
 import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -61,6 +62,7 @@ const Profile = () => {
         {/* ****** auth not working ****** */}
 
         {token && (<p>you're logged in!</p>)}
+        {!token && (<Navigate to="/signupForm"/>)}
         <div className="Profile">
  
          {/* ****** auth not working ****** */}
