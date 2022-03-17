@@ -57,18 +57,11 @@ const Profile = () => {
 
     return (
         <>
-        {/* ****** auth not working ****** */}
-        {/* {loggedIn && userData ? (   */}
-        {/* ****** auth not working ****** */}
-
+        {/* if token > display memes, no token > reroute to signupForm */}
         {token && (<p>you're logged in!</p>)}
         {!token && (<Navigate to="/signupForm"/>)}
         <div className="Profile">
  
-         {/* ****** auth not working ****** */}
-        {/* <h2>{userData.me.username}</h2> */}
-        {/* ****** auth not working ****** */}
-
         <h2>Username</h2>
         <h4>'Info'</h4>
 
