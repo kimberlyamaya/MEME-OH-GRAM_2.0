@@ -39,9 +39,9 @@ const MemeGenerator = () => {
 
   // this function creates the POST method by sending the captions and the meme back to the api to create the meme.
   const createMeme = () => {
-    console.log("clicked");
     const captionedMeme = memes[memeIndex];
     const formData = new FormData();
+    console.log("clicked");
 
     formData.append("username", "lssdavies");
     formData.append("password", "meme-OH-gram");
