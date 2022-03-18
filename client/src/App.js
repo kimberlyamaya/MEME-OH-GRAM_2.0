@@ -60,9 +60,11 @@ function App() {
         <Route path="/loginForm" element={<LoginForm/>}/>
         <Route path="/signupForm" element={<SignupForm/>}/>
         <Route path="/logout" element={<LoginForm/>}/>
-        <Route path="/profile" element={<Profile/>}/>
+        {/* *** -ka passing username into profile route *** */}
+        <Route exact path="/profile/:username?" element={<Profile/>}/>
+        {/* *** -ka passing username into profile route *** */}
 
-        <Route path="*" element={<NoMatch/>}/>
+        <Route path="*" element={<NoMatch/>}/>        
       </Routes>
       </>
       </Router>

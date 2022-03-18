@@ -29,7 +29,7 @@ const typeDefs = gql `
 
     type Query {
         me: User # your username
-        findUser(username: String!): User, # profile api
+        findUser(username: String!): User
         memes(username: String): [Meme] # your memes
         allMemes: [Meme]
         link(_id: ID!): Meme

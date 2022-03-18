@@ -6,7 +6,7 @@ export const QUERY_ME = gql`
     _id
     username
     email
-    meme {
+    memes {
       _id
       link
       username
@@ -22,7 +22,7 @@ export const QUERY_FIND_USER = gql`
       _id
       username
       email
-      meme {
+      memes {
         _id
         link
         username

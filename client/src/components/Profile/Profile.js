@@ -1,6 +1,9 @@
 import React from 'react';
 import NewMeme from '../NewMeme/NewMeme';
-// import {Navigate} from 'react-router-dom' 
+
+// ****** me query not working ******
+import { useParams } from 'react-router-dom' 
+// ****** me query not working ******
 
 import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -9,7 +12,8 @@ import { useQuery } from '@apollo/client';
 // import { QUERY_ME } from '../../utils/queries';
 // ****** me query not working ******
 
-import { QUERY_ALL_MEMES } from '../../utils/queries';
+// add quey all memes
+import { QUERY_FIND_USER } from '../../utils/queries';
 
 
 // import ReactDOM from 'react-dom';
@@ -22,21 +26,28 @@ const Profile = () => {
 
     const token = Auth.getToken()
 
-    // ****** me query not working ******
+    // ****** me query not working******
 
-    // const { meLoading, meError, meData } = useQuery(QUERY_ME)
-    // const userData = meData?.me || []
+    const { username: userParam } = useParams();
+
+    const { loading, error, data } = useQuery(QUERY_FIND_USER, {
+        variables: { username: userParam },
+      });
+
+    const findUser = data?.findUser || {}
+
+    console.log(loading)
+    console.log(error)
+    console.log(JSON.stringify(error, null, 2));
+    console.log(data)
+    console.log(findUser)
 
     // ****** me query not working******
 
-    // console.log(userData)
-    // console.log(meError)
-    // console.log(JSON.stringify(meError, null, 2));
 
-
-
-    const { loading, error, data } = useQuery(QUERY_ALL_MEMES)
-    const allMemes =  data?.allMemes || []
+    // took away all memes  
+    // const { loading, error, data } = useQuery(QUERY_ALL_MEMES)
+    // const allMemes =  data?.allMemes || []
 
     // console.log(data)
     // console.log(error)
@@ -46,8 +57,9 @@ const Profile = () => {
     // const newmeme=["newmeme1", "newmeme2", "newmeme3", "newmeme4", "newmeme5", "newmeme6", "newmeme7", "newmeme8"]
     // -- seths end
    
-    if (loading ) return <p>loading...</p>
-    if (error ) return <p>I'm working on it..</p>
+    // took away all memes  
+    // if (loading ) return <p>loading...</p>
+    // if (error ) return <p>I'm working on it..</p>
 
     return (
         <>
@@ -69,7 +81,8 @@ const Profile = () => {
 
 
         {/* -ka added 03/16 */}
-        <NewMeme allMemes={allMemes} />
+         {/* took away all memes   */}
+        {/* <NewMeme allMemes={allMemes} /> */}
         {/* -ka end */}
 
         </div> )}

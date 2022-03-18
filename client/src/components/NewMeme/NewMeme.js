@@ -53,7 +53,7 @@ function NewMeme({ allMemes }) {
 <>
 {allMemes &&
   allMemes.map(allMemes => (
-    <>
+    <div key={allMemes._id}>
     <div className="NewMeme">
         <h3><img src={allMemes.link} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
         <h5>{count}</h5>
@@ -66,7 +66,7 @@ function NewMeme({ allMemes }) {
     {unVote&&<button onClick={increment}>Like</button>}
     {vote&&<button  onClick={decrement}>Unlike</button>}
     <button onClick={Edit}>Edit</button></div>
-    </>
+    </div>
   ))}
 </>
 )
