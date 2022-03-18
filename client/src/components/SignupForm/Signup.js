@@ -63,16 +63,16 @@ function Signup() {
             <div className="form-group">
             <label htmlFor="formGroupExampleInput">Username</label>
             {/* -ka added value=, onChange=, name=, changed type=text to type=username on 3/14 */}
-            <input type="username" name="username" className="form-control" placeholder="Username" value={formState.username} onChange={handleChange}/>
+            <input type="username" name="username" className="form-control col-4" placeholder="Username" value={formState.username} onChange={handleChange}/>
             {/* -ka end */}
               <div className="form-group ">
               <label htmlFor="exampleInputEmail1">Email address</label>
                 {/* -ka added value=, onChange=, name=, on 3/14 */}
-                <input type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value={formState.email} onChange={handleChange}/>
+                <input type="email" name="email" className="form-control col-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value={formState.email} onChange={handleChange}/>
                 {/* -ka end */}
               <label htmlFor="exampleInputPassword1">Password</label>
                 {/* -ka added value=, onChange=, name=, on 3/14 */}
-                <input type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" value={formState.password} onChange={handleChange}/>
+                <input type="password" name="password" className="form-control col-4" id="exampleInputPassword1" placeholder="Password" value={formState.password} onChange={handleChange}/>
                 {/* -ka end */}
               </div>
               <button type="submit" className="btn btn-secondary btn-lg">submit</button>

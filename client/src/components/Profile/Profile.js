@@ -36,21 +36,21 @@ const Profile = () => {
     
     
     return (
-        <>
+         <div className="Profile">
         {/* ****** auth not working ****** */}
         {/* {loggedIn && userData ? (   */}
         {/* ****** auth not working ****** */}
 
-        <div className="Profile">
+       
  
          {/* ****** auth not working ****** */}
         {/* <h2>{userData.me.username}</h2> */}
         {/* ****** auth not working ****** */}
-
+        <div>
         <h2>SantiTest</h2>
-        <h4>'Info'
-        <a href="./meme" className="btn btn-primary stretched-link">Meme generator</a>
-        </h4>
+        <h4>'Info'</h4><a href="./meme" className="btn btn-primary stretched-link "><h4>Meme generator</h4></a></div>
+        
+        
         
 
         {/* <p>{data.link}</p> */}
@@ -61,12 +61,12 @@ const Profile = () => {
         ))}
     
 
-        </div> 
+        
         {/* ****** auth not working ****** */}
         {/* ) : null } */}
         {/* ****** auth not working ****** */}
-
-        </>
+</div> 
+      
 
     );
 

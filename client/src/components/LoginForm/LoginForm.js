@@ -62,13 +62,13 @@ const Login = (props) => {
             <label htmlFor="formGroupExampleInput">Username</label>
               {/* -ka added value and onChange below 3/14 */}
               {/* -ka changed type from text to username and added name=username 3/14 */}
-              <input type="username" name="username" className="form-control" id="formGroupExampleInput" placeholder="Username" value={formState.username} onChange={handleChange} />
+              <input type="username" name="username" className="form-control col-4" id="formGroupExampleInput" placeholder="Username" value={formState.username} onChange={handleChange} />
               {/* <label htmlFor="exampleInputusername">Username</label>
               <input type="username" className="form-control" id="exampleInputEmail1" aria-describedby="usernamelHelp" placeholder="Username" /> */}
               <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Password</label>
                 {/* -ka added value and onChange and name=password below 3/14 */}
-                <input type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" value={formState.password} onChange={handleChange} />
+                <input type="password" name="password" className="form-control  col-4" id="exampleInputPassword1" placeholder="Password" value={formState.password} onChange={handleChange} />
               </div>
               <button type="submit" className="btn btn-secondary btn-lg">submit</button>
               <h3 className='h3'>Don't have an account?</h3>
