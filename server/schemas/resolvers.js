@@ -83,7 +83,8 @@ const resolvers = {
             if (context.user) {
                 const updateMeme = await Meme.findOneAndUpdate(
                     { _id: memeId },
-                    { $push: { likes: { likeCount, username: context.user.username }}},
+                    // { $push: { likes: { likeCount, username: context.user.username }}},
+                    { $push: { likeCount: likeCount  } },
                     { new: true, runValidators: true }
                 );
                 

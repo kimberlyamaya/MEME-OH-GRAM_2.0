@@ -39,7 +39,7 @@ const Profile = () => {
     // -- seths end
    
     if (loading ) return <p>loading...</p>
-    if (error ) return <p>I'm working on it..</p>
+    if (error ) return <div className="Profile"> <p>You need to be logged in to see this. Click here to <a href="/signupForm">signup!</a></p>  </div>
 
     return (
         <>

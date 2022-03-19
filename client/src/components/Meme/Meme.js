@@ -1,5 +1,10 @@
 import React , { useState } from 'react'
 
+// -ka added 318
+import { useMutation } from '@apollo/client'
+import { ADD_LIKE } from '../../utils/mutations'
+// -ka end
+
 const Like = () => {
     console.log("like");
 };
@@ -32,6 +37,14 @@ function Meme({ allMemes }) {
       setVote(true)
     }
     setUnVote(false)
+
+    // -ka trying to pass variables to add count mutation 
+    // countLikes ({
+    //   variables: {
+    //     memeId: allMemes._link,
+    //     likes: allMemes.likes
+    //   }
+    // })
   }
 
     const decrement = () => {
@@ -56,7 +69,6 @@ function Meme({ allMemes }) {
         <h5>{count}</h5>
     
     <div className="cardBody"> </div>
-
     </div> */}
     {/* -seths */}
 

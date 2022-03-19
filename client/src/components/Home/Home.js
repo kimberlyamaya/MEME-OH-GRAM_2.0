@@ -30,7 +30,9 @@ const Home = () => {
 
     const allMemes =  data?.allMemes || []
 
-    const memes=["meme1", "meme2", "meme3", "meme4", "meme5", "meme6", "meme7", "meme8"]
+    // -seths 
+    // const memes=["meme1", "meme2", "meme3", "meme4", "meme5", "meme6", "meme7", "meme8"]
+    // -seths end
     
     if (loading) return <p>loading...</p>
     if (error) return <p>I'm working on it..</p>

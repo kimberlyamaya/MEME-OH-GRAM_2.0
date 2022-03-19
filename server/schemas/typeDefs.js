@@ -39,7 +39,7 @@ const typeDefs = gql `
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String, password: String!): Auth
         addMeme(link: String!): Meme
-        addLike( memeId: ID!, likes: Int!): Meme
+        addLike( memeId: ID!, likeCount: Int): Meme
         # addLike(_id: ID!, likes: Int!): Meme
     }
 
