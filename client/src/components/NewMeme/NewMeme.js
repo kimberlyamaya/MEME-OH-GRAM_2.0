@@ -13,7 +13,11 @@ import React , { useState } from 'react'
 // function NewMeme({name,}) {
 
 // -ka added 3/16
-function NewMeme({ allMemes }) {
+function FindUser( {userMemes} ) {
+
+  console.log(userMemes)
+  // console.log(findUser.memes.link)  
+  console.log(Object.keys(userMemes));
 
     const [count, setCount] = useState(0);
     const [vote, setVote ] = useState(false);
@@ -31,10 +35,6 @@ function NewMeme({ allMemes }) {
         setVote(false)
     }
 
-    // - ka added 3/16
-    if (!allMemes.length) {
-        return <h3>You haven't created any Memes...</h3>
-    }
 
     return (
 
@@ -51,11 +51,12 @@ function NewMeme({ allMemes }) {
 
 //  -ka added 03/16 
 <>
-{allMemes &&
-  allMemes.map(allMemes => (
-    <div key={allMemes._id}>
+{userMemes &&
+  userMemes.map(userMemes => (
+    <>
+    <div key={userMemes._id}>
     <div className="NewMeme">
-        <h3><img src={allMemes.link} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
+        <h3><img src={userMemes.link} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
         <h5>{count}</h5>
 
     <div className="cardBody2"> </div>
@@ -67,10 +68,11 @@ function NewMeme({ allMemes }) {
     {vote&&<button  onClick={decrement}>Unlike</button>}
     <button onClick={Edit}>Edit</button></div>
     </div>
+    </>
   ))}
 </>
 )
 }
 
 
-export default NewMeme;
+export default FindUser;
