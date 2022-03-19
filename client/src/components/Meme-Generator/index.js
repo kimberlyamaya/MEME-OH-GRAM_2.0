@@ -48,34 +48,40 @@ const MemeGenerator = () => {
     //conditionally rendering meme image based on whether there memes array has memes using a turnary
     memes.length ? (
       <div className="memes">
-        <img src={memes[memeIndex].url} alt="meme" />
+        <img src={memes[memeIndex].url} alt={memes.name} />
         <form
+          className="memes"
           onSubmit={async (e) => {
             e.preventDefault();
             //create varibale with params to append to URL to create meme
             const params = {
-              template_id: memes.id,
+              template_id: memes[memeIndex].id,
               text0: caption1,
               text1: caption2,
               username: "lssdavies",
               password: "meme-OH-gram",
             };
             const response = await fetch(
-              `https://api.imgflip.com/caption_image${appendToUrl(params)}`
+              `https://api.imgflip.com/caption_image${appendToUrl(
+                params
+              )}`
             );
+            const createdMeme = await response.json();
+            console.log(createdMeme);
+            
           }}
         >
           <input
             className="caption"
-            value="caption1"
             placeholder="Caption 1"
-            // onChange={(e) => setCaption1(e.target.value)}
+            value={caption1}
+            onChange={(e) => setCaption1(e.target.value)}
           />
           <input
             className="caption"
-            value="caption2"
             placeholder="Caption 2"
-            // onChange={(e) => setCaption1(e.target.value)}
+            value={caption2}
+            onChange={(e) => setCaption2(e.target.value)}
           />
 
           <button type="submit" className="createBtn">
