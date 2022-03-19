@@ -1,25 +1,31 @@
 import React from "react";
 import "./index.css";
+
 // Importing react hooks useEffect and useState
 import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
-//taking object params and pulling out key value pairs to append to url for meme creation, this passe3d back to the fetch request when form is submitted
-  const appendToUrl = (obj) => {
-    const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
-    return "?" + params.join("&");
-  };
+//Importing npm package use-clipboard-copy
+import { useClipboard } from "use-clipboard-copy";
 
 const MemeGenerator = () => {
-  //Using react hooks
-  //using useSate to set memes as an empty array, initialize memeIndex to 0 so we can increment to go to the next meme and captionBox to an empty array.
+  //Using react hooks; useSate to set memes as an empty array, initialize memeIndex to 0 so we can increment to go to the next meme and captionBox to an empty array.
   const [memes, setMemes] = useState([]);
   const [memeIndex, setMemeIndex] = useState(0);
   const [caption1, setCaption1] = useState("");
   const [caption2, setCaption2] = useState("");
-  // const history = useNavigate();
-  
-  
+  const [generatedMeme, setGeneratedMeme] = useState("");
+  const [copiedMeme, setCopiedMeme] = useState(false);
+  const copyToClipbpoard = useClipboard();
+
+  //function that uses useClipboard to copy meme link
+  const copyMeme = () => {
+    copyToClipbpoard.copy(generatedMeme);
+    setCopiedMeme(true);
+  };
+  //taking object params and pulling out key value pairs to append to url for meme creation, this passe3d back to the fetch request when form is submitted
+  const appendToUrl = (obj) => {
+    const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
+    return "?" + params.join("&");
+  };
 
   //using Fisher-Yates / Durstenfeld shuffle to shuffle memes array once fetched courtesy StackOverflow
   const shuffle = (array) => {
@@ -44,63 +50,79 @@ const MemeGenerator = () => {
     });
   }, []);
 
-  return (
-    //conditionally rendering meme image based on whether there memes array has memes using a turnary
-    memes.length ? (
+  //conditional to render page based on whether a meme has been generated or if one needs to be created
+  if (generatedMeme) {
+    return (
       <div className="memes">
-        <img src={memes[memeIndex].url} alt={memes.name} />
-        <form
-          className="memes"
-          onSubmit={async (e) => {
-            e.preventDefault();
-            //create varibale with params to append to URL to create meme
-            const params = {
-              template_id: memes[memeIndex].id,
-              text0: caption1,
-              text1: caption2,
-              username: "lssdavies",
-              password: "meme-OH-gram",
-            };
-            const response = await fetch(
-              `https://api.imgflip.com/caption_image${appendToUrl(
-                params
-              )}`
-            );
-            const createdMeme = await response.json();
-            console.log(createdMeme);
-            
-          }}
-        >
-          <input
-            className="caption"
-            placeholder="Caption 1"
-            value={caption1}
-            onChange={(e) => setCaption1(e.target.value)}
-          />
-          <input
-            className="caption"
-            placeholder="Caption 2"
-            value={caption2}
-            onChange={(e) => setCaption2(e.target.value)}
-          />
-
-          <button type="submit" className="createBtn">
-            Create
-          </button>
-          <button
-            onClick={() => setMemeIndex(memeIndex + 1)}
-            className="nextBtn"
+        <img src={generatedMeme} alt="Generated Meme" />
+        {/* //reloads page to get user back to meme-generator but may cause issues with jwt token since only users can access page*/}
+        <button className="createBtn" onClick={() => window.location.reload()}>
+          Create New Meme
+        </button>
+        {/* using turnary express to toggle text in button based on the state copiedMeme */}
+        <button onClick={copyMeme} className="copyBtn">
+          {copiedMeme ? "Meme copied" : "Copy To Clipboard"}
+        </button>
+        <button className="nextBtn">Save Meme</button>
+      </div>
+    );
+  } else {
+    return (
+      //conditionally rendering meme image based on whether there memes array has memes using a turnary
+      memes.length ? (
+        <div className="memes">
+          <img src={memes[memeIndex].url} alt={memes.name} />
+          <form
+            className="memes"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              //create varibale with params to append to URL to create meme
+              const params = {
+                template_id: memes[memeIndex].id,
+                text0: caption1,
+                text1: caption2,
+                username: "lssdavies",
+                password: "meme-OH-gram",
+              };
+              const response = await fetch(
+                `https://api.imgflip.com/caption_image${appendToUrl(params)}`
+              );
+              const createdMeme = await response.json();
+              console.log(createdMeme.data.url);
+              setGeneratedMeme(createdMeme.data.url);
+            }}
           >
-            Next Meme
-          </button>
-        </form>
-      </div>
-    ) : (
-      <div>
-        <h2>Memes currently not available</h2>
-      </div>
-    )
-  );
+            <input
+              className="caption"
+              placeholder="Caption 1"
+              value={caption1}
+              onChange={(e) => setCaption1(e.target.value)}
+            />
+            <input
+              className="caption"
+              placeholder="Caption 2"
+              value={caption2}
+              onChange={(e) => setCaption2(e.target.value)}
+            />
+
+            <button type="submit" className="createBtn">
+              Create
+            </button>
+            <button
+              onClick={() => setMemeIndex(memeIndex + 1)}
+              className="nextBtn"
+            >
+              Next Meme
+            </button>
+          </form>
+        </div>
+      ) : (
+        <div>
+          <h2>Memes currently not available</h2>
+        </div>
+      )
+    );
+  }
 };
 
 export default MemeGenerator;
