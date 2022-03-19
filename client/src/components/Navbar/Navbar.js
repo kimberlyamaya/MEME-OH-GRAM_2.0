@@ -42,6 +42,7 @@ function NavbarMain() {
     const handleClick = () => {
         console.log("click handled")
     }
+    
     return (
         <>
 <header className='header bigNavbar' >

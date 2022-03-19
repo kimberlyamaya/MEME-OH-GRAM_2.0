@@ -6,9 +6,13 @@ class AuthService {
   }
 
   // check if logged in
-  loggedIn() {
+  loggedIn(tokenId) {
     const token = this.getToken();
-    return !!token && !this.isTokenExpired(token);
+
+    var decoded = decode(tokenId)
+    var username = decoded.data.username
+
+    return !!token && username && !this.isTokenExpired(token);
   }
 
   // check if token is expired
