@@ -15,9 +15,6 @@ import React , { useState } from 'react'
 // -ka added 3/16
 function FindUser( {userMemes} ) {
 
-  console.log(userMemes)
-  // console.log(findUser.memes.link)  
-  console.log(Object.keys(userMemes));
 
     const [count, setCount] = useState(0);
     const [vote, setVote ] = useState(false);
@@ -54,7 +51,6 @@ function FindUser( {userMemes} ) {
 {userMemes &&
   userMemes.map(userMemes => (
     <>
-    <div key={userMemes._id}>
     <div className="NewMeme">
         <h3><img src={userMemes.link} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
         <h5>{count}</h5>
@@ -67,7 +63,7 @@ function FindUser( {userMemes} ) {
     {unVote&&<button onClick={increment}>Like</button>}
     {vote&&<button  onClick={decrement}>Unlike</button>}
     <button onClick={Edit}>Edit</button></div>
-    </div>
+
     </>
   ))}
 </>
