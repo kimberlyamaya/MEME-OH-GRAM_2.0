@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
+  
   }
 .App {
   text-align: center;
@@ -53,12 +54,12 @@ h1,h4{
   display: none;
   cursor: pointer;
 } */
- .Profile,.loginForm, .signupForm{
+ .Home,.Profile,.loginForm, .signupForm{
 border-top: 1px solid black;
 width: 100%;
 /* padding-left: 100px; */
-height: 100vh;
-font-size: 50px;
+height: auto;
+font-size: 40px;
 background-image: url("./Assets/bg.png");
 background-size: cover;
 }
@@ -128,20 +129,17 @@ background-size: cover;
     }
     
 }
-/* @media(min-width:600px){
-  .title{
-    padding-top: 25px;
-    height: 1vh;
-    }
-    h1{font-size: 1em;}
-    .logo{
-      width: 20vw;
-    height: 20vh;
-    
-    }
-} */
 
-
+.footer{
+  background-image: url("./Assets/bg.png");
+  border-radius: 0%;
+  font-size: 12px;
+}
+.info{
+display: inline;
+font-size: 1em;
+padding-left: 20px;
+}
 
 @media (max-width:600px){
  h4,h2{
@@ -442,13 +440,13 @@ h3{font-size: 20px;}
   font: 20px;
 }
 
-.Profile, .Home { 
+/* .Profile, .Home { 
   background-image: url("./Assets/bg.png");
   height: 100vh;
   border-top: 2px solid rgb(252, 252, 252);
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   
-}
+} */
 
 
 /* .Profile { 

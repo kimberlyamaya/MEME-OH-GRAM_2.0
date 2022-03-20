@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/kimberlyamaya/meme-OH-gram#readme",
   "dependencies": {
-    "concurrently": "^7.0.0"
+    "@fortawesome/fontawesome-svg-core": "^6.1.0",
+    "bootstrap-icons": "^1.8.1",
+    "concurrently": "^7.0.0",
+    "react-icons": "^4.3.1"
   }
 }
