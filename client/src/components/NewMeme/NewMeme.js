@@ -32,18 +32,23 @@ function NewMeme({name,}) {
     return (
 <>
 <div className="NewMeme">
-        <h3><img src={name} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
-        <h5>{count}</h5>
+        {/* <h3><img className='memeImg' src={name} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
+        <h5>{count}</h5> */}
+        <h3><img className='memeImg' src={name} alt="meme" /></h3>
+        
 
-<div className="cardBody2"> </div>
+{/* <div className="cardBody2"> </div> */}
 
+
+
+<div className="newMemeButton ">
+{unVote&&<button className='like' onClick={increment}><h3>Like</h3></button>}
+{vote&&<button className='unlike'  onClick={decrement}><h3>Unlike</h3></button>}
+<button className='edit' onClick={Edit}><h3>Edit</h3></button><div className='count'><h5>{count}</h5></div>
+{/* <button type="submit" className="btn btn-secondary btn-sm">submit</button> */}
+{/* <button type="submit" className="btn btn-secondary btn-sm">submit</button> */}
 </div>
-
-<div class="newMemeButtonLike newMemeButtonEdit">
-{unVote&&<button onClick={increment}>Like</button>}
-{vote&&<button  onClick={decrement}>Unlike</button>}
-<button onClick={Edit}>Edit</button></div>
-
+</div>
 
 
 </>

@@ -28,7 +28,7 @@ const Profile = () => {
 
     // const { data } = useQuery(QUERY_ALL_MEMES)
 
-    const newmeme=["https://i.imgflip.com/3qqcim.png", "newmeme2", "newmeme3", "newmeme4", "newmeme5", "newmeme6", "newmeme7", "newmeme8"]
+    const newmeme=["https://i.imgflip.com/3qqcim.png", "https://i.imgflip.com/1bhf.jpg", "https://i.imgflip.com/2odckz.jpg", "https://i.imgflip.com/23ls.jpg", "https://i.imgflip.com/4acd7j.png", "https://i.imgflip.com/1ihzfe.jpg", "https://i.imgflip.com/vdz0.jpg", "https://i.imgflip.com/1bh9.jpg"]
 
     // ****** auth not working ******
     // const loggedIn = Auth.loggedIn();
@@ -36,19 +36,22 @@ const Profile = () => {
     
     
     return (
-        <>
+         <div className="Profile">
         {/* ****** auth not working ****** */}
         {/* {loggedIn && userData ? (   */}
         {/* ****** auth not working ****** */}
 
-        <div className="Profile">
+       
  
          {/* ****** auth not working ****** */}
         {/* <h2>{userData.me.username}</h2> */}
         {/* ****** auth not working ****** */}
-
-        <h2>'Blue'</h2>
-        <h4>'Info'</h4>
+        <div>
+        <h2>SantiTest</h2>
+        <h4>'Info'</h4><a href="./meme" className="btn btn-primary stretched-link "><h4>Meme generator</h4></a></div>
+        
+        
+        
 
         {/* <p>{data.link}</p> */}
 
@@ -56,14 +59,14 @@ const Profile = () => {
         <NewMeme name={newmeme}  />
         
         ))}
+    
 
-
-        </div> 
+        
         {/* ****** auth not working ****** */}
         {/* ) : null } */}
         {/* ****** auth not working ****** */}
-
-        </>
+</div> 
+      
 
     );
 

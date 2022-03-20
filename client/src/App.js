@@ -3,7 +3,7 @@ import "./App.css";
 // import logo from './logo.svg';
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import Footer from "./components/Footer/Footer";
 import './App.css';
 import Navbar from "./components/Navbar/Navbar"
 import Home from './components/Home/Home';
@@ -62,6 +62,7 @@ function App() {
           <Route path="/meme" element={<MemeGenerator />} />
         </Routes>
       </Router>
+      <Footer/>
     </ApolloProvider>
   );
 }

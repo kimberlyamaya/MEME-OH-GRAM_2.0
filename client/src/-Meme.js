@@ -24,9 +24,11 @@ function Meme({name,likes}) {
    </div>
 
 
-<div class="memeButtons">
-<button onClick={Like}>Like</button>
-<button onClick={dontLike}>Nope</button></div>
+<div className="memeButtons">
+<button className='' onClick={Like}>Like</button>
+<button className='' onClick={dontLike}>Nope</button>
+
+</div>
 
 </>
 

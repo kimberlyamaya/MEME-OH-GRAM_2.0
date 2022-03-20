@@ -44,23 +44,26 @@ function Meme({name}) {
   return (
     <>
     <div className="Meme">
-        <h3>{name}</h3>
-        <h5>{count}</h5>
+        {/* <h3>{name}</h3> */}
+        {/* <h3><img className='memeImg' src={name} alt="meme" style={{width:"200px", height:"auto"}}/></h3> */}
+       
     
     
-   <div className="cardBody"> </div>
+    <img className='memeImg' src={name} alt="meme"/>
+   {/* <div className="cardBody">  </div> */}
 
+
+
+<div className="memeButtonLike memeButtonNope">
+
+
+<button className='like'disabled={vote} onClick={increment}><h3>Like</h3></button>
+<button className='unlike' disabled={unVote} onClick={decrement}><h3>Nope</h3></button><div className='count'>{count}</div></div>
    </div>
 
 
 
 
-
-<div class="memeButtonLike memeButtonNope">
-
-<button disabled={vote} onClick={increment}>Like</button>
-
-<button disabled={unVote} onClick={decrement}>Nope</button></div>
 
 
 
