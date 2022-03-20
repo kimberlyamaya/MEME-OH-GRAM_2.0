@@ -49,7 +49,10 @@ const Home = () => {
         {/* - seth end */}
 
         {/* -ka added 03/16 */}
-        <Meme allMemes={allMemes} />
+        {allMemes.map((allMemes) => (
+            <Meme allMemes={allMemes} />
+        ))}
+
         {/* -ka end */}
 
         </div>

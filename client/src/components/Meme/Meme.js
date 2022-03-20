@@ -56,10 +56,6 @@ function Meme({ allMemes }) {
       setVote(false)
   }
 
-    // - ka added 3/16
-    if (!allMemes.length) {
-      return <h3>You haven't created any Memes...</h3>
-    }
 
   return (
     <>
@@ -74,9 +70,9 @@ function Meme({ allMemes }) {
 
 
     {/* -ka added 03/16  */}
-    {allMemes &&
-    allMemes.map(allMemes => (
-    <>
+    {/* {allMemes &&
+    allMemes.map(allMemes => ( */}
+
     <div className="NewMeme">
         <h3><img src={allMemes.link} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
         <h5>{count}</h5>
@@ -91,29 +87,8 @@ function Meme({ allMemes }) {
 
     <button disabled={unVote} onClick={decrement}>Nope</button></div>
     </>
-  ))}
-</>
   )
 }
 
 export default Meme;
 
-// function Counter() {
-//     const [counter, setCounter] = useState(0);
-  
-//     function increment() {
-//       setCounter(counter+1);
-//     }
-//     return <div>
-//     <p>{counter}</p>
-//     <button onClick={increment}>Increment</button>
-//     </div>;
-//   }
-
-// function Toggle() {
-//     const [val, setVal] = useState("ON");
-//     function toggle() {
-//       setVal((val=="ON")?"OFF":"ON");
-//     }
-//     return <button onClick={toggle}>{val}</button>;
-//   }

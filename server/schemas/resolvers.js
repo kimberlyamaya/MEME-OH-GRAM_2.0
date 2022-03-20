@@ -90,6 +90,24 @@ const resolvers = {
                 
                 return updateMeme;
             }
+        },
+
+        removeMeme: async (parent, args, context) => {
+
+            if(context.user) {
+              const meme = await Meme.findById({ ...args, username: context.user.username });
+                
+              await User.findByIdAndUpdate(
+                
+                { _id: context.user._id },
+                { $pull: { memes: { _id: meme._id} } },
+                { new: true }
+            );
+
+            return updatedUser;
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
         }
     }
 };
