@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo&family=Roboto:wght@300&family=Shalimar&display=swap");
+
+:root   {
+    --primaryColor: #E24E42;
+    --secondaryColor: #E98000;
+    --tertiaryColor: #E86E80;
+    --fourthColor: #008F95;
+    --accentColor: teal;
+    --additionalColor: #fec260;
+}
+/*Page resets*/
+*   {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body    {
+    font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+a, a:hover, a:link, a:visited, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.memes  {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--fourthColor);
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.memes img  {
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.8); 
+    border-radius: 1.5rem;
+    max-width: 30%;
+    height: auto;
+    margin: 1rem;
+}
+
+.nextBtn   {
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.8);
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    background-color: var(--additionalColor);
+    color: white;
+    font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    width: 10rem;
+    border-radius: 1rem;
+    transition: 0.4s ease-in-out;
+}
+.createBtn  {
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.8);
+    padding: 0.5rem;
+    margin: 1rem 0;
+    background-color: var(--secondaryColor);
+    color: white;
+    font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    width: 10rem;
+    border-radius: 1rem;
+    transition: 0.4s ease-in-out;
+}
+.copyBtn    {
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.8);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #44718c;
+    color: white;
+    font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    width: 10rem;
+    border-radius: 1rem;
+    transition: 0.4s ease-in-out;
+}
+.nextBtn:hover, .createBtn:hover, .copyBtn:hover   {
+    background-color: var(--primaryColor);
+    font-family: 'Roboto','Cairo', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    transform: scale(1.25);
+}
+.caption {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: lighter;
+    color: var(--fourthColor);
+    border-radius: 0.25rem;
+    border: 1px solid var(--accentColor);
+    text-align: center;
+    min-width: 8rem;
+    padding: .25rem;
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.8);
+}

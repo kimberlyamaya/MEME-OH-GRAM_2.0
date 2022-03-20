@@ -1,0 +1,35 @@
+{
+  "name": "meme-oh-gram-server",
+  "version": "1.0.0",
+  "description": "Meme Generator",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kimberlyamaya/meme-OH-gram.git"
+  },
+  "keywords": [
+    "meme"
+  ],
+  "author": "Kimberly Amaya, Larry Davies, Santiago Ibarra Ryan, Santiago Venegas, Seth Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kimberlyamaya/meme-OH-gram/issues"
+  },
+  "homepage": "https://github.com/kimberlyamaya/meme-OH-gram#readme",
+  "dependencies": {
+    "apollo-server-express": "^3.6.3",
+    "bcrypt": "^5.0.1",
+    "concurrently": "^7.0.0",
+    "express": "^4.17.3",
+    "graphql": "^16.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
