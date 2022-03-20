@@ -35,11 +35,12 @@ const Profile = () => {
 
 
     // -- seths
-    // const newmeme=["newmeme1", "newmeme2", "newmeme3", "newmeme4", "newmeme5", "newmeme6", "newmeme7", "newmeme8"]
+    // const newmeme=["https://i.imgflip.com/3qqcim.png", "https://i.imgflip.com/1bhf.jpg", "https://i.imgflip.com/2odckz.jpg", "https://i.imgflip.com/23ls.jpg", "https://i.imgflip.com/4acd7j.png", "https://i.imgflip.com/1ihzfe.jpg", "https://i.imgflip.com/vdz0.jpg", "https://i.imgflip.com/1bh9.jpg"]
     // -- seths end
    
     if (loading ) return <p>loading...</p>
     if (error ) return <div className="Profile"> <p>You need to be logged in to see this. Click here to <a href="/signupForm">signup!</a></p>  </div>
+
 
     return (
         <>
@@ -58,6 +59,7 @@ const Profile = () => {
 
         
         </>
+
     );
 };
 

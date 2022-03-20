@@ -37,6 +37,7 @@ function FindUser( {userMemes} ) {
         setVote(false)
     }
 
+
     // const deleteMeme = () => {
 
     // }
@@ -60,18 +61,15 @@ function FindUser( {userMemes} ) {
   userMemes.map(userMemes => (
     <>
     <div className="NewMeme">
-        <h3><img src={userMemes.link} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
+        <h3><img className='memeImg' src={userMemes.link} alt="meme" /></h3>
         <h5>{count} likes </h5>
 
-    <div className="cardBody2"> </div>
 
+    <div className="newMemeButton ">
+      {/*unVote&&<button className='like' onClick={increment}><h3>Like</h3></button>}
+      {vote&&<button className='unlike'  onClick={decrement}><h3>Unlike</h3></button>*/}
+      /*<button className='edit' onClick={Edit}><h3>Edit</h3></button><div className='count'><h5>{count}</h5></div>*/
     </div>
-
-    <div class="newMemeButtonLike newMemeButtonEdit">
-    {/* {unVote&&<button onClick={increment}>Like</button>}
-    {vote&&<button  onClick={decrement}>Unlike</button>}
-    <button onClick={Edit}>Edit</button> */}
-    {/* <button onClick={deleteMeme}>Delete</button> */}
     </div>
 
     </>

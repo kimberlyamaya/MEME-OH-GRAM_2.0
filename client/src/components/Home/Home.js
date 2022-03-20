@@ -24,23 +24,25 @@ const Home = () => {
 
     const [count, setCount] = useState(0);
 
-    // -ka added 3/16
+
+  // -ka added 3/16
     const { loading, error, data } = useQuery(QUERY_ALL_MEMES)
     // -ka ended
 
     const allMemes =  data?.allMemes || []
 
     // -seths 
-    // const memes=["meme1", "meme2", "meme3", "meme4", "meme5", "meme6", "meme7", "meme8"]
+    // const memes=["https://i.imgflip.com/8k0sa.jpg", "https://i.imgflip.com/vdz0.jpg", "https://i.imgflip.com/1ooaki.jpg", "https://i.imgflip.com/1bh9.jpg", "https://i.imgflip.com/1ihzfe.jpg", "https://i.imgflip.com/261o3j.jpg", "https://i.imgflip.com/26br.jpg", "https://i.imgflip.com/2kbn1e.jpg"]
     // -seths end
+
     
     if (loading) return <p>loading...</p>
     if (error) return <p>I'm working on it..</p>
     return (
         <>
         <div className="Home">
-            <h1>Meme-Oh-Gram</h1>
-            <p>like or comment below</p>
+            {/* <h1>Meme-Oh-Gram</h1> */}
+            <h2>like or comment below</h2>
 
         {/* - seth start */}
         {/* {memes.map((meme)=>(

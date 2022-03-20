@@ -59,6 +59,7 @@ function Meme({ allMemes }) {
 
   return (
     <>
+
     {/* -seths */}
     {/* <div className="Meme">
         <h3>{name}</h3>
@@ -73,19 +74,16 @@ function Meme({ allMemes }) {
     {/* {allMemes &&
     allMemes.map(allMemes => ( */}
 
-    <div className="NewMeme">
-        <h3><img src={allMemes.link} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
+    <div className="Meme">
+        <img className='memeImg' src={allMemes.link} alt="meme" />
         <h5>{count}</h5>
 
-    <div className="cardBody2"> </div>
-
-    </div>
 
     <div class="memeButtonLike memeButtonNope">
 
-    <button disabled={vote} onClick={increment}>Like</button>
+    <button className='like' disabled={vote} onClick={increment}><h3>Like</h3></button>
 
-    <button disabled={unVote} onClick={decrement}>Nope</button></div>
+    <button className='unlike' disabled={unVote} onClick={decrement}><h3>Nope</h3></button></div></div>
     </>
   )
 }
