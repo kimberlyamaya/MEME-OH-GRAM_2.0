@@ -41,14 +41,10 @@ mutation addMeme($link: String!) {
 `
 
 export const ADD_LIKE = gql`
-mutation addLike($link: ID!, $likeStorage: Int) {
-  addLike(link: $link, likeStorage: $likeStorage) {
+mutation addLike($memeId: ID!, $likes: Int) {
+  addLike(memeId: $memeId, likes: $likes) {
     _id
     likeCount
-    likes {
-      _id
-      likeStorage
-    }
   }
 }
 `

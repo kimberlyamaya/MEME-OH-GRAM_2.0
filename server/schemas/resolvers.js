@@ -9,6 +9,7 @@ const resolvers = {
             if (context.user) {
                 const user = await User.findOne({ _id: context.user._id })
                 .select('-__v -password')
+                .populate('memes')
                 
                 return user;
             }
@@ -82,12 +83,31 @@ const resolvers = {
             if (context.user) {
                 const updateMeme = await Meme.findOneAndUpdate(
                     { _id: memeId },
-                    { $push: { likes: { likeCount, username: context.user.username }}},
+                    // { $push: { likes: { likeCount, username: context.user.username }}},
+                    { $push: { likeCount: likeCount  } },
                     { new: true, runValidators: true }
                 );
                 
                 return updateMeme;
             }
+        },
+
+        removeMeme: async (parent, args, context) => {
+
+            if(context.user) {
+              const meme = await Meme.findById({ ...args, username: context.user.username });
+                
+              await User.findByIdAndUpdate(
+                
+                { _id: context.user._id },
+                { $pull: { memes: { _id: meme._id} } },
+                { new: true }
+            );
+
+            return updatedUser;
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
         }
     }
 };

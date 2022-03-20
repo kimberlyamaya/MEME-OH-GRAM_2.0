@@ -9,8 +9,16 @@ import React , { useState } from 'react'
         console.log("Edit");
     };
 
+    // -ka added 318
+    // import { useMutation } from '@apollo/client'
+    // import { ADD_LIKE } from '../../utils/mutations'
+    // -ka end
 
-function NewMeme({name,}) {
+
+// function NewMeme({name,}) {
+
+// -ka added 3/16
+function FindUser( {userMemes} ) {
 
 
     const [count, setCount] = useState(0);
@@ -29,32 +37,46 @@ function NewMeme({name,}) {
         setVote(false)
     }
 
+
+    // const deleteMeme = () => {
+
+    // }
+
     return (
+
+//  -seths
+//  <div className="NewMeme">
+//         <h3><img src={name} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
+//         <h5>{count}</h5>
+
+// <div className="cardBody2"> </div>
+
+// </div> 
+//  -seths end
+
+
+//  -ka added 03/16 
 <>
-<div className="NewMeme">
-        {/* <h3><img className='memeImg' src={name} alt="meme" style={{width:"200px", height:"auto"}}/></h3>
-        <h5>{count}</h5> */}
-        <h3><img className='memeImg' src={name} alt="meme" /></h3>
-        
-
-{/* <div className="cardBody2"> </div> */}
-
+{userMemes &&
+  userMemes.map(userMemes => (
+    <>
+    <div className="NewMeme">
+        <h3><img className='memeImg' src={userMemes.link} alt="meme" /></h3>
+        <h5>{count} likes </h5>
 
 
-<div className="newMemeButton ">
-{unVote&&<button className='like' onClick={increment}><h3>Like</h3></button>}
-{vote&&<button className='unlike'  onClick={decrement}><h3>Unlike</h3></button>}
-<button className='edit' onClick={Edit}><h3>Edit</h3></button><div className='count'><h5>{count}</h5></div>
-{/* <button type="submit" className="btn btn-secondary btn-sm">submit</button> */}
-{/* <button type="submit" className="btn btn-secondary btn-sm">submit</button> */}
-</div>
-</div>
+    <div className="newMemeButton ">
+      {/*unVote&&<button className='like' onClick={increment}><h3>Like</h3></button>}
+      {vote&&<button className='unlike'  onClick={decrement}><h3>Unlike</h3></button>*/}
+      /*<button className='edit' onClick={Edit}><h3>Edit</h3></button><div className='count'><h5>{count}</h5></div>*/
+    </div>
+    </div>
 
-
+    </>
+  ))}
 </>
-
-    )
+)
 }
 
 
-export default NewMeme;
+export default FindUser;

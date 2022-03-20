@@ -29,7 +29,7 @@ const typeDefs = gql `
 
     type Query {
         me: User # your username
-        findUser(username: String!): User, # profile api
+        findUser(username: String!): User
         memes(username: String): [Meme] # your memes
         allMemes: [Meme]
         link(_id: ID!): Meme
@@ -39,8 +39,8 @@ const typeDefs = gql `
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String, password: String!): Auth
         addMeme(link: String!): Meme
-        addLike( memeId: ID!, likes: Int!): Meme
-        # addLike(_id: ID!, likes: Int!): Meme
+        addLike( memeId: ID!, likeCount: Int): Meme
+        removeMeme( _id: ID!): Meme 
     }
 
 `;

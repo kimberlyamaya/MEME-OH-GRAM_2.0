@@ -15,7 +15,9 @@ const memeSchema = new Schema({
     type: String,
     required: true
   },
-  likes: [likeSchema],
+  likeCount: {
+    type: Number
+  }
 },
 {
   toJSON: {
@@ -24,9 +26,9 @@ const memeSchema = new Schema({
 })
 
 // populate virtual
-memeSchema.virtual('likeCount').get(function () {
-  return this.likes.length;
-});
+// memeSchema.virtual('likeCount').get(function () {
+//   return this.likes.length;
+// });
 
 // has to be a model so they can standalone from the user, to be displayed as generated memes
 const Meme = model('Meme', memeSchema)

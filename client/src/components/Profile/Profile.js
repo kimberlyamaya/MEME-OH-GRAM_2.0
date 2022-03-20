@@ -1,75 +1,66 @@
 import React from 'react';
-import NewMeme from '../NewMeme/NewMeme';
+import { Navigate } from 'react-router-dom';
 
-// -ka added 03/14
+// -seths
+// import NewMeme from '../NewMeme/NewMeme';
+// -seths end
+
+import { useParams } from 'react-router-dom' 
+
+import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/client';
 
-// ****** auth not working ******
-// import { QUERY_ME } from '../../utils/queries';
-// import Auth from '../../utils/auth';
-// ****** auth not working ******
 
-import { QUERY_ALL_MEMES } from '../../utils/queries';
-
-// -ka end
-
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from '../../client/src/App';
-// import reportWebVitals from '../../client/src/reportWebVitals';
+// add quey all memes
+import { QUERY_FIND_USER } from '../../utils/queries';
 
 
 const Profile = () => {
 
-    // -ka added 03/14
-    // ****** auth not working ******
-    // const { data: userData } = useQuery(QUERY_ME)
-    // ****** auth not working ******
+    const token = Auth.getToken()
 
-    // const { data } = useQuery(QUERY_ALL_MEMES)
+    const { username: userParam } = useParams();
 
-    const newmeme=["https://i.imgflip.com/3qqcim.png", "https://i.imgflip.com/1bhf.jpg", "https://i.imgflip.com/2odckz.jpg", "https://i.imgflip.com/23ls.jpg", "https://i.imgflip.com/4acd7j.png", "https://i.imgflip.com/1ihzfe.jpg", "https://i.imgflip.com/vdz0.jpg", "https://i.imgflip.com/1bh9.jpg"]
+    const { loading, error, data } = useQuery(QUERY_FIND_USER, {
+        variables: { username: userParam },
+      });
 
-    // ****** auth not working ******
-    // const loggedIn = Auth.loggedIn();
-    // ****** auth not working ******
-    
-    
+    const findUser = data?.findUser || {}
+
+    console.log(loading)
+    console.log(error)
+    console.log(JSON.stringify(error, null, 2));
+    console.log(data)
+    console.log(findUser)
+
+
+    // -- seths
+    // const newmeme=["https://i.imgflip.com/3qqcim.png", "https://i.imgflip.com/1bhf.jpg", "https://i.imgflip.com/2odckz.jpg", "https://i.imgflip.com/23ls.jpg", "https://i.imgflip.com/4acd7j.png", "https://i.imgflip.com/1ihzfe.jpg", "https://i.imgflip.com/vdz0.jpg", "https://i.imgflip.com/1bh9.jpg"]
+    // -- seths end
+   
+    if (loading ) return <p>loading...</p>
+    if (error ) return <div className="Profile"> <p>You need to be logged in to see this. Click here to <a href="/signupForm">signup!</a></p>  </div>
+
+
     return (
-         <div className="Profile">
-        {/* ****** auth not working ****** */}
-        {/* {loggedIn && userData ? (   */}
-        {/* ****** auth not working ****** */}
+        <>
+        {/* if token > route to ProfileUsername, no token > display message to signhup */}
 
-       
- 
-         {/* ****** auth not working ****** */}
-        {/* <h2>{userData.me.username}</h2> */}
-        {/* ****** auth not working ****** */}
-        <div>
-        <h2>SantiTest</h2>
-        <h4>'Info'</h4><a href="./meme" className="btn btn-primary stretched-link "><h4>Meme generator</h4></a></div>
-        
-        
-        
+        {token && (
+        <Navigate to={`profile/${findUser.username}`} />  )}
 
-        {/* <p>{data.link}</p> */}
-
-        {newmeme.map((newmeme)=>(
-        <NewMeme name={newmeme}  />
+        {!token && (
         
-        ))}
-    
+        <div className="Profile">
+        <p>You need to be logged in to see this. Click here to <a href="/signupForm">signup!</a></p>
+        </div>
+        
+        )}
 
         
-        {/* ****** auth not working ****** */}
-        {/* ) : null } */}
-        {/* ****** auth not working ****** */}
-</div> 
-      
+        </>
 
     );
-
 };
 
 export default Profile;
