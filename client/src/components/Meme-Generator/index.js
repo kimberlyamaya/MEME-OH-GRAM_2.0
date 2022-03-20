@@ -1,16 +1,31 @@
 import React from "react";
 import "./index.css";
+
 // Importing react hooks useEffect and useState
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+//Importing npm package use-clipboard-copy
+import { useClipboard } from "use-clipboard-copy";
 
 const MemeGenerator = () => {
-  //Using react hooks
-  //using useSate to set memes as an empty array, initialize memeIndex to 0 so we can increment to go to the next meme and captionBox to an empty array.
+  //Using react hooks; useSate to set memes as an empty array, initialize memeIndex to 0 so we can increment to go to the next meme and captionBox to an empty array.
   const [memes, setMemes] = useState([]);
   const [memeIndex, setMemeIndex] = useState(0);
-  const [textInputBox, setTextInputBox] = useState([]);
-  const history = useNavigate();
+  const [caption1, setCaption1] = useState("");
+  const [caption2, setCaption2] = useState("");
+  const [generatedMeme, setGeneratedMeme] = useState("");
+  const [copiedMeme, setCopiedMeme] = useState(false);
+  const copyToClipbpoard = useClipboard();
+
+  //function that uses useClipboard to copy meme link
+  const copyMeme = () => {
+    copyToClipbpoard.copy(generatedMeme);
+    setCopiedMeme(true);
+  };
+  //taking object params and pulling out key value pairs to append to url for meme creation, this passe3d back to the fetch request when form is submitted
+  const appendToUrl = (obj) => {
+    const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
+    return "?" + params.join("&");
+  };
 
   //using Fisher-Yates / Durstenfeld shuffle to shuffle memes array once fetched courtesy StackOverflow
   const shuffle = (array) => {
@@ -20,46 +35,6 @@ const MemeGenerator = () => {
       array[i] = array[j];
       array[j] = temp;
     }
-  };
-
-  // this function captures the input from input fields and tracks which index text is being updated. we do this by passing the text from the onChange in the input field and its index
-  const createCaption = (text, index) => {
-    const caption = text.target.value || "";
-    // we need to update the textInputBox array on the index we are currently on. We use the map() Method to go through the array and check if the index(the text box we are on matches the index in the array i.e. same text box) and then we return the captured text i.e. caption. Else we return the textbox.
-    setTextInputBox(
-      textInputBox.map((t, i) => {
-        if (index === i) {
-          return caption;
-        } else {
-          return t;
-        }
-      })
-    );
-  };
-
-  // this function creates the POST method by sending the captions and the meme back to the api to create the meme.
-  const createMeme = () => {
-    console.log("clicked");
-    const captionedMeme = memes[memeIndex];
-    const formData = new FormData();
-
-    formData.append("username", "lssdavies");
-    formData.append("password", "meme-OH-gram");
-    formData.append("template_id", captionedMeme.id);
-    textInputBox.forEach((t, index) =>
-      formData.append(`boxes[${index}][caption]`, t)
-    );
-    console.log(captionedMeme);
-    console.log(formData);
-    fetch("https://api.imgflip.com/caption_image", {
-      method: "POST",
-      body: formData,
-    }).then((res) => {
-      res.json().then((res) => {
-        history.push(`/created?url=${captionedMeme.url}`);
-        console.log(res);
-      });
-    });
   };
 
   //using useEffect to perform fetch request when componet loads
@@ -75,42 +50,79 @@ const MemeGenerator = () => {
     });
   }, []);
 
-  /*using useEffect to track data.meme.box_count for current meme to ensure the correct amount of textbox inputs displays for the user. So we want to store the current meme i.e. memes[memeIndex] and  create an array using the Array() constructor with a length = box_count and initilize each array index to a empty string. So we can push the user text into. The useEffect hook will need access memeIndex and memes in dependency array to acees the info it needs*/
-  useEffect(() => {
-    if (memes[memeIndex]) {
-      setTextInputBox(Array(memes[memeIndex].box_count).fill(""));
-    }
-  }, [memeIndex, memes]);
-
-  return (
-    //conditionally rendering meme image based on whether there memes array has memes using a turnary
-    memes.length ? (
+  //conditional to render page based on whether a meme has been generated or if one needs to be created
+  if (generatedMeme) {
+    return (
       <div className="memes">
-        <img src={memes[memeIndex].url} alt="meme" />
-        {
-          //this takes the created array
-          textInputBox.map((textbox, index) => (
+        <img src={generatedMeme} alt="Generated Meme" />
+        {/* //reloads page to get user back to meme-generator but may cause issues with jwt token since only users can access page*/}
+        <button className="createBtn" onClick={() => window.location.reload()}>
+          Create New Meme
+        </button>
+        {/* using turnary express to toggle text in button based on the state copiedMeme */}
+        <button onClick={copyMeme} className="copyBtn">
+          {copiedMeme ? "Meme copied" : "Copy To Clipboard"}
+        </button>
+        <button className="nextBtn">Save Meme</button>
+      </div>
+    );
+  } else {
+    return (
+      //conditionally rendering meme image based on whether there memes array has memes using a turnary
+      memes.length ? (
+        <div className="memes">
+          <img src={memes[memeIndex].url} alt={memes.name} />
+          <form
+            className="memes"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              //create varibale with params to append to URL to create meme
+              const params = {
+                template_id: memes[memeIndex].id,
+                text0: caption1,
+                text1: caption2,
+                username: "lssdavies",
+                password: "meme-OH-gram",
+              };
+              const response = await fetch(
+                `https://api.imgflip.com/caption_image${appendToUrl(params)}`
+              );
+              const createdMeme = await response.json();
+              console.log(createdMeme.data.url);
+              setGeneratedMeme(createdMeme.data.url);
+            }}
+          >
             <input
               className="caption"
-              placeholder="Caption"
-              key={index}
-              onChange={(text) => createCaption(text, index)}
+              placeholder="Caption 1"
+              value={caption1}
+              onChange={(e) => setCaption1(e.target.value)}
             />
-          ))
-        }
-        <button onClick={createMeme} className="createBtn">
-          Create
-        </button>
-        <button onClick={() => setMemeIndex(memeIndex + 1)} className="nextBtn">
-          Next Meme
-        </button>
-      </div>
-    ) : (
-      <div>
-        <h2>Memes currently not available</h2>
-      </div>
-    )
-  );
+            <input
+              className="caption"
+              placeholder="Caption 2"
+              value={caption2}
+              onChange={(e) => setCaption2(e.target.value)}
+            />
+
+            <button type="submit" className="createBtn">
+              Create
+            </button>
+            <button
+              onClick={() => setMemeIndex(memeIndex + 1)}
+              className="nextBtn"
+            >
+              Next Meme
+            </button>
+          </form>
+        </div>
+      ) : (
+        <div>
+          <h2>Memes currently not available</h2>
+        </div>
+      )
+    );
+  }
 };
 
 export default MemeGenerator;

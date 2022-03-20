@@ -1,25 +1,25 @@
 import React from 'react'
 import logo from '../../Assets/logo.svg';
 // import 'react-bootstrap'
-import { Container, NavDropdown, Nav, Navbar, NavLink } from 'react-bootstrap';
+import { Container, NavDropdown, Nav, Navbar, NavLink } from "react-bootstrap";
 
 // -ka added 3/14
 import Auth from '../../utils/auth'
  
 function NavbarMain() {
-    // -ka added 03/14
-    const logout = event => {
-      event.preventDefault();
-      Auth.logout()
-    }
-    // -ka end
+  // -ka added 03/14
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+  // -ka end
 
     const handleClick = () => {
         console.log("click handled")
     }
     
     return (
-        <>
+        
 <header className='header bigNavbar' >
     <div className="container ">
 
@@ -58,19 +58,9 @@ function NavbarMain() {
     </Navbar.Collapse>
   </Container>
 </Navbar>
-
-   
-   
-
-
 </div>
-
-
-   
- </header>
-        </>
-
-    )
+</header>
+  );
 }
 
-export default NavbarMain
+export default NavbarMain;
