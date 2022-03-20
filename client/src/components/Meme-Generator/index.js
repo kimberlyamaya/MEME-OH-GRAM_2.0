@@ -1,6 +1,9 @@
 import React from "react";
 import "./index.css";
 
+import { useMutation } from '@apollo/client';
+import { ADD_MEME } from '../../utils/mutations'
+
 // Importing react hooks useEffect and useState
 import { useEffect, useState } from "react";
 //Importing npm package use-clipboard-copy
@@ -16,7 +19,23 @@ const MemeGenerator = () => {
   const [copiedMeme, setCopiedMeme] = useState(false);
   const copyToClipbpoard = useClipboard();
 
-  //function that uses useClipboard to copy meme link
+  // -ka new const useMutation
+  const [addMeme, {error}] = useMutation(ADD_MEME)
+
+  // console.log(JSON.stringify(error, null, 2))
+  console.log(addMeme)
+  console.log(generatedMeme)
+
+  // -ka new function for mutation
+  const passingMeme = async () => {
+    addMeme ({
+      variables: {
+        link: generatedMeme
+      }
+    })
+  }
+
+   //function that uses useClipboard to copy meme link
   const copyMeme = () => {
     copyToClipbpoard.copy(generatedMeme);
     setCopiedMeme(true);
@@ -63,7 +82,7 @@ const MemeGenerator = () => {
         <button onClick={copyMeme} className="copyBtn">
           {copiedMeme ? "Meme copied" : "Copy To Clipboard"}
         </button>
-        <button className="nextBtn">Save Meme</button>
+        <button onClick={passingMeme} className="nextBtn">Save Meme</button>
       </div>
     );
   } else {

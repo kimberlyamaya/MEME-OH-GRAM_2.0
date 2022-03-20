@@ -52,7 +52,7 @@ function NavbarMain() {
           {/* -ka end */}
           <NavDropdown.Item href="./Profile">Profile</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.4">Donation</NavDropdown.Item>
         </NavDropdown>
       </Nav>
     </Navbar.Collapse>

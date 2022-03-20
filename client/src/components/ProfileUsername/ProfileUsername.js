@@ -1,4 +1,5 @@
 import React from 'react';
+
 import NewMeme from '../NewMeme/NewMeme';
 
 import { useParams } from 'react-router-dom' 
@@ -10,7 +11,7 @@ import { QUERY_FIND_USER } from '../../utils/queries';
 
 
 const Profile = () => {
-
+  
     const { username: userParam } = useParams();
 
     const { loading, error, data } = useQuery(QUERY_FIND_USER, {
@@ -19,7 +20,6 @@ const Profile = () => {
 
     const findUser = data?.findUser || {}
 
-    // console.log(findUser)
 
 
     // -- seths
@@ -36,6 +36,10 @@ const Profile = () => {
  
         <h2>{findUser.username}</h2>
         <h4>You have created {findUser.memes.length} memes!</h4>
+
+        <div>
+        <a href="./meme" className="btn btn-primary stretched-link "><h4>Meme generator</h4></a>
+        </div>
 
         {/* - seth start */}
         {/* {newmeme.map((newmeme)=>(

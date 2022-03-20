@@ -39,7 +39,7 @@ const Profile = () => {
     // -- seths end
    
     if (loading ) return <p>loading...</p>
-    if (error ) return <div className="Profile"> <p>You need to be logged in to see this. Click here to <a href="/signupForm">signup!</a></p>  </div>
+    if (error ) return <div className="Profile"> <p>You need to be logged in to see this. Click here <span style={{color: "grey", textDecoration: "underline"}}><a href="/signupForm">signup!</a></span></p>  </div>
 
 
     return (
@@ -52,7 +52,7 @@ const Profile = () => {
         {!token && (
         
         <div className="Profile">
-        <p>You need to be logged in to see this. Click here to <a href="/signupForm">signup!</a></p>
+        <p>You need to be logged in to see this. Click here to <span style={{color: "grey", textDecoration: "underline"}}><a href="/signupForm">signup!</a></span></p>
         </div>
         
         )}

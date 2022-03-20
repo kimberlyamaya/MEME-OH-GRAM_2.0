@@ -1,4 +1,5 @@
 import React , { useState } from 'react'
+import { useClipboard } from "use-clipboard-copy";
 
 
     const Like = () => {
@@ -20,6 +21,9 @@ import React , { useState } from 'react'
 // -ka added 3/16
 function FindUser( {userMemes} ) {
 
+  const copyToClipbpoard = useClipboard();
+
+    const [passLink, setPassLink] = useState('')
 
     const [count, setCount] = useState(0);
     const [vote, setVote ] = useState(false);
@@ -42,6 +46,18 @@ function FindUser( {userMemes} ) {
 
     // }
 
+
+
+      const copyMeme = (link)  => {
+        // setPassLink(link)
+
+        copyToClipbpoard.copy(link);
+        console.log(link)
+        console.log(userMemes)
+      };
+
+
+
     return (
 
 //  -seths
@@ -57,6 +73,7 @@ function FindUser( {userMemes} ) {
 
 //  -ka added 03/16 
 <>
+
 {userMemes &&
   userMemes.map(userMemes => (
     <>
@@ -68,12 +85,15 @@ function FindUser( {userMemes} ) {
     <div className="newMemeButton ">
       {/*unVote&&<button className='like' onClick={increment}><h3>Like</h3></button>}
       {vote&&<button className='unlike'  onClick={decrement}><h3>Unlike</h3></button>*/}
-      /*<button className='edit' onClick={Edit}><h3>Edit</h3></button><div className='count'><h5>{count}</h5></div>*/
+      <button className='edit' onClick={copyMeme(userMemes.link)}><h3>Copy</h3></button><div className='count'></div>
     </div>
     </div>
 
     </>
   ))}
+
+      
+
 </>
 )
 }

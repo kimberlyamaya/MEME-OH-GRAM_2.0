@@ -33,9 +33,6 @@ mutation addMeme($link: String!) {
     username
     createdAt
     likeCount
-    likes {
-      _id
-    }
   }
 }
 `
