@@ -22,7 +22,7 @@ const MemeGenerator = () => {
   // -ka new const useMutation
   const [addMeme, {error}] = useMutation(ADD_MEME)
 
-  // console.log(JSON.stringify(error, null, 2))
+  console.log(JSON.stringify(error, null, 2))
   console.log(addMeme)
   console.log(generatedMeme)
 

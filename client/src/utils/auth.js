@@ -45,6 +45,11 @@ class AuthService {
     localStorage.setItem('id_token', tokenId);
   }
 
+  // -ka added to pass as login to signup js
+  signupSameAsLogin(tokenId) {
+    localStorage.setItem('id_token', tokenId)
+  }
+
   // clear user token from localStorage and logout
   logout() {
     localStorage.removeItem('id_token');

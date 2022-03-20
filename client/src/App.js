@@ -27,8 +27,8 @@ import {ApolloClient,
 import {setContext} from "@apollo/client/link/context"
 
 const httpLink = createHttpLink({
-  uri: '/graphql'
-  // uri: 'http://localhost:3007/graphql'
+  // uri: '/graphql'
+  uri: 'http://localhost:3007/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -67,8 +67,8 @@ function App() {
         <Route exact path="/signupForm" element={<SignupForm/>}/>
         <Route exact path="/logout" element={<LoginForm/>}/>
         <Route exact path="/profile" element={<Profile/>}/>
-        <Route path="/meme" element={<MemeGenerator />} />
-        <Route path="/profile/meme" element={<MemeGenerator />} />
+        <Route path="/meme" element={<MemeGenerator/>} />
+        <Route path="/profile/meme" element={<MemeGenerator/>} />
         {/* *** -ka added path 3/18 *** */}
         <Route exact path="/profile/profile" element={<Profile/>}/>
         {/* *** -ka added path 3/18 *** */}
