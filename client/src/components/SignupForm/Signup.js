@@ -49,6 +49,14 @@ function Signup() {
     } catch (err) {
       console.log(err)
     }
+
+    // - ka added 3/20
+
+    formState({
+      username: "",
+      email: "",
+      password: ""
+    })
   }
   // -ka end
 

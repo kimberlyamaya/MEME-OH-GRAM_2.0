@@ -6,19 +6,24 @@ class AuthService {
   }
 
   // check if logged in
-  loggedIn(tokenId) {
+  // loggedIn(tokenId) {
+  //   const token = this.getToken();
+
+  //   var decoded = decode(tokenId)
+  //   var username = decoded.data.username
+
+  //   return !!token && username && !this.isTokenExpired(token);
+  // }
+  loggedIn() {
+    // Checks if there is a saved token and it's still valid
     const token = this.getToken();
-
-    var decoded = decode(tokenId)
-    var username = decoded.data.username
-
-    return !!token && username && !this.isTokenExpired(token);
+    return !!token && !this.isTokenExpired(token); // handwaiving here
   }
 
   // check if token is expired
   isTokenExpired(token) {
     try {
-      var decoded = decode(token);
+      const decoded = decode(token);
       if (decoded.exp < Date.now() / 1000) {
         return true;
       } else return false;
@@ -33,16 +38,16 @@ class AuthService {
   }
 
   // Saves user token to localStorage
-  login(tokenId) {
+  login(idToken) {
 
     // *** -ka passing username into profile route ***
-    var decoded = decode(tokenId)
+    var decoded = decode(idToken)
     var username = decoded.data.username
 
     window.location.assign(`/profile/${username}`);
     // *** -ka passing username into profile route ***
 
-    localStorage.setItem('id_token', tokenId);
+    localStorage.setItem('id_token', idToken);
   }
 
   // clear user token from localStorage and logout
