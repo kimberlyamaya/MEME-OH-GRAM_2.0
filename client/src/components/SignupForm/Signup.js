@@ -44,7 +44,7 @@ function Signup() {
 
       Auth.login(data.addUser.token)
 
-      window.location.assign(`/profile/${formState.username}`);
+      // window.location.assign(`/profile/${formState.username}`);
 
     } catch (err) {
       console.log(err)

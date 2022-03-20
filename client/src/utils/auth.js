@@ -39,7 +39,7 @@ class AuthService {
     var decoded = decode(tokenId)
     var username = decoded.data.username
 
-    // window.location.assign(`/profile/${username}`);
+    window.location.assign(`/profile/${username}`);
     // *** -ka passing username into profile route ***
 
     localStorage.setItem('id_token', tokenId);
