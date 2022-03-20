@@ -56,17 +56,8 @@ function NavbarMain() {
     </Navbar.Collapse>
   </Container>
 </Navbar>
-
-   
-   
-
-
 </div>
-
-
-   
- </header>
-        
+</header>
   );
 }
 
