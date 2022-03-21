@@ -42,7 +42,7 @@ const Home = () => {
         <>
         <div className="Home">
             {/* <h1>Meme-Oh-Gram</h1> */}
-            <h2>like or comment below</h2>
+            <h2>Like and share your favorite memes</h2>
 
         {/* - seth start */}
         {/* {memes.map((meme)=>(

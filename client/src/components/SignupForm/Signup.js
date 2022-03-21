@@ -23,7 +23,7 @@ function Signup() {
     email: '',
     password: ''
   })
-  const [addUser, {error}] = useMutation(ADD_USER)
+  const [createNewUser, {error}] = useMutation(ADD_USER)
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -38,13 +38,14 @@ function Signup() {
     event.preventDefault()
 
     try {
-      const {data} = await addUser({
+      const {data} = await createNewUser({
         variables: {...formState}
       })
 
-      Auth.login(data.addUser.token)
+      // Auth.login(data.addUser.token)   
+      Auth.signupSameAsLogin(data.addUser.token)
 
-      // window.location.assign(`/profile/${formState.username}`);
+      window.location.assign(`/profile/${formState.username}`);
 
     } catch (err) {
       console.log(err)

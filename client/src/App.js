@@ -67,8 +67,8 @@ function App() {
         <Route exact path="/signupForm" element={<SignupForm/>}/>
         <Route exact path="/logout" element={<LoginForm/>}/>
         <Route exact path="/profile" element={<Profile/>}/>
-        <Route path="/meme" element={<MemeGenerator />} />
-        <Route path="/profile/meme" element={<MemeGenerator />} />
+        <Route path="/meme" element={<MemeGenerator/>} />
+        <Route path="/profile/meme" element={<MemeGenerator/>} />
         {/* *** -ka added path 3/18 *** */}
         <Route exact path="/profile/profile" element={<Profile/>}/>
         {/* *** -ka added path 3/18 *** */}

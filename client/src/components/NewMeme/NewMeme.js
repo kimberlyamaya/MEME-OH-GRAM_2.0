@@ -85,7 +85,7 @@ function FindUser( {userMemes} ) {
     <div className="newMemeButton ">
       {/*unVote&&<button className='like' onClick={increment}><h3>Like</h3></button>}
       {vote&&<button className='unlike'  onClick={decrement}><h3>Unlike</h3></button>*/}
-      <button className='edit' onClick={copyMeme(userMemes.link)}><h3>Copy</h3></button><div className='count'></div>
+      {/* <button className='edit' onClick={copyMeme(userMemes.link)}><h3>Copy</h3></button><div className='count'></div> */}
     </div>
     </div>
 
